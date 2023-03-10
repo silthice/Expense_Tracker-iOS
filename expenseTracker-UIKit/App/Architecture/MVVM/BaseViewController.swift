@@ -83,7 +83,6 @@ class BaseViewController<VM> : UIViewController, BaseViewType, ViewType, BaseNav
     }
     //MARK: transform
     func setupTransformInput() {
-        viewModel.errorView = self
     }
     
     func transform() {

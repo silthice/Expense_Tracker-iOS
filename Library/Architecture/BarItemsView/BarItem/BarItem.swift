@@ -28,7 +28,6 @@ class BarItem: Equatable {
     
     @objc func performAction(sender: Any?) {
         if let viewController = viewController {
-            AppUtils.vibrateGenerator()
             closure?(viewController)
         }
     }

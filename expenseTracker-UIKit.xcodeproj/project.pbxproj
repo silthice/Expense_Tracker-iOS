@@ -48,16 +48,7 @@
 		80818B0B29BB41DC0003BC6F /* UIViewController+DisposeOnWillRemoveFromParentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B0A29BB41DC0003BC6F /* UIViewController+DisposeOnWillRemoveFromParentType.swift */; };
 		80818B0D29BB41EC0003BC6F /* UIViewController+SwizzleDOWRFP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B0C29BB41EC0003BC6F /* UIViewController+SwizzleDOWRFP.swift */; };
 		80818B1029BB42740003BC6F /* SwizzlingUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B0F29BB42740003BC6F /* SwizzlingUtility.swift */; };
-		80818B1329BB43310003BC6F /* ErrorHandlingViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B1229BB43310003BC6F /* ErrorHandlingViewType.swift */; };
-		80818B1529BB433A0003BC6F /* ErrorHandlingViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B1429BB433A0003BC6F /* ErrorHandlingViewModelType.swift */; };
-		80818B1729BB43450003BC6F /* ShowLoginSessionExpireViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B1629BB43450003BC6F /* ShowLoginSessionExpireViewType.swift */; };
-		80818B1A29BB43C50003BC6F /* PresentErrorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B1929BB43C50003BC6F /* PresentErrorProtocol.swift */; };
 		80818B1C29BB44AF0003BC6F /* Observable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B1B29BB44AF0003BC6F /* Observable+Ext.swift */; };
-		80818B1F29BB45590003BC6F /* PresentDialogProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B1E29BB45590003BC6F /* PresentDialogProtocol.swift */; };
-		80818B2129BB45690003BC6F /* DialogAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B2029BB45690003BC6F /* DialogAction.swift */; };
-		80818B2429BB45DB0003BC6F /* PresentWithIntentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B2329BB45DB0003BC6F /* PresentWithIntentProtocol.swift */; };
-		80818B2629BB45E20003BC6F /* PresentWithIntentProtocol+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B2529BB45E20003BC6F /* PresentWithIntentProtocol+Extension.swift */; };
-		80818B2829BB45F20003BC6F /* UIViewController+PresentWithIntentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B2729BB45F20003BC6F /* UIViewController+PresentWithIntentProtocol.swift */; };
 		80818B2B29BB463A0003BC6F /* DismissResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B2A29BB463A0003BC6F /* DismissResult.swift */; };
 		80818B2D29BB46420003BC6F /* DismissWithResultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B2C29BB46420003BC6F /* DismissWithResultProtocol.swift */; };
 		80818B2F29BB464D0003BC6F /* DismissWithResultProtocol+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B2E29BB464D0003BC6F /* DismissWithResultProtocol+Extension.swift */; };
@@ -81,22 +72,9 @@
 		80818B5729BB4EA80003BC6F /* UIViewController+RxBarItemsViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B5629BB4EA80003BC6F /* UIViewController+RxBarItemsViewType.swift */; };
 		80818B5929BB4F090003BC6F /* CloseBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B5829BB4F090003BC6F /* CloseBarItem.swift */; };
 		80818B5B29BB4F110003BC6F /* BackBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B5A29BB4F110003BC6F /* BackBarItem.swift */; };
-		80818B5F29BB50180003BC6F /* UIView+ErrorHandlingViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B5E29BB50180003BC6F /* UIView+ErrorHandlingViewType.swift */; };
-		80818B6129BB50250003BC6F /* UIViewController+ErrorHandlingViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B6029BB50250003BC6F /* UIViewController+ErrorHandlingViewType.swift */; };
-		80818B6329BB50430003BC6F /* UIViewController+ShowImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B6229BB50430003BC6F /* UIViewController+ShowImagePickerView.swift */; };
-		80818B6629BB50C90003BC6F /* UIViewController+PresentDialogProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B6529BB50C90003BC6F /* UIViewController+PresentDialogProtocol.swift */; };
-		80818B6829BB51170003BC6F /* ErrorHandlingViewModelType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B6729BB51170003BC6F /* ErrorHandlingViewModelType+Extension.swift */; };
 		80818B6C29BB51B00003BC6F /* BuildConfigType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B6B29BB51B00003BC6F /* BuildConfigType.swift */; };
-		80818B6F29BB523F0003BC6F /* UIViewController+PresentErrorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B6E29BB523F0003BC6F /* UIViewController+PresentErrorProtocol.swift */; };
-		80818B7129BB525C0003BC6F /* PresentErrorProtocolImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B7029BB525C0003BC6F /* PresentErrorProtocolImpl.swift */; };
-		80818B7329BB52700003BC6F /* UIView+PresentErrorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B7229BB52700003BC6F /* UIView+PresentErrorProtocol.swift */; };
 		80818B7629BB54DB0003BC6F /* Error+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B7529BB54DB0003BC6F /* Error+Helper.swift */; };
 		80818B7A29BB6DF50003BC6F /* UIView+Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B7929BB6DF50003BC6F /* UIView+Toast.swift */; };
-		80818B7E29BB70FB0003BC6F /* ExpenseTrackerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B7D29BB70FB0003BC6F /* ExpenseTrackerAPI.swift */; };
-		80818B8029BB71090003BC6F /* ExpressTrackerConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B7F29BB71090003BC6F /* ExpressTrackerConstant.swift */; };
-		80818B8329BB71380003BC6F /* ExpenseTrackerBaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B8229BB71380003BC6F /* ExpenseTrackerBaseRequest.swift */; };
-		80818B8529BB71410003BC6F /* ExpenseTrackerBaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B8429BB71410003BC6F /* ExpenseTrackerBaseResponse.swift */; };
-		80818B8729BB71520003BC6F /* ExpenseTrackerBaseTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818B8629BB71520003BC6F /* ExpenseTrackerBaseTarget.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,16 +123,7 @@
 		80818B0A29BB41DC0003BC6F /* UIViewController+DisposeOnWillRemoveFromParentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DisposeOnWillRemoveFromParentType.swift"; sourceTree = "<group>"; };
 		80818B0C29BB41EC0003BC6F /* UIViewController+SwizzleDOWRFP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SwizzleDOWRFP.swift"; sourceTree = "<group>"; };
 		80818B0F29BB42740003BC6F /* SwizzlingUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwizzlingUtility.swift; sourceTree = "<group>"; };
-		80818B1229BB43310003BC6F /* ErrorHandlingViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlingViewType.swift; sourceTree = "<group>"; };
-		80818B1429BB433A0003BC6F /* ErrorHandlingViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlingViewModelType.swift; sourceTree = "<group>"; };
-		80818B1629BB43450003BC6F /* ShowLoginSessionExpireViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowLoginSessionExpireViewType.swift; sourceTree = "<group>"; };
-		80818B1929BB43C50003BC6F /* PresentErrorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentErrorProtocol.swift; sourceTree = "<group>"; };
 		80818B1B29BB44AF0003BC6F /* Observable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Ext.swift"; sourceTree = "<group>"; };
-		80818B1E29BB45590003BC6F /* PresentDialogProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentDialogProtocol.swift; sourceTree = "<group>"; };
-		80818B2029BB45690003BC6F /* DialogAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogAction.swift; sourceTree = "<group>"; };
-		80818B2329BB45DB0003BC6F /* PresentWithIntentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentWithIntentProtocol.swift; sourceTree = "<group>"; };
-		80818B2529BB45E20003BC6F /* PresentWithIntentProtocol+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PresentWithIntentProtocol+Extension.swift"; sourceTree = "<group>"; };
-		80818B2729BB45F20003BC6F /* UIViewController+PresentWithIntentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+PresentWithIntentProtocol.swift"; sourceTree = "<group>"; };
 		80818B2A29BB463A0003BC6F /* DismissResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissResult.swift; sourceTree = "<group>"; };
 		80818B2C29BB46420003BC6F /* DismissWithResultProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissWithResultProtocol.swift; sourceTree = "<group>"; };
 		80818B2E29BB464D0003BC6F /* DismissWithResultProtocol+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DismissWithResultProtocol+Extension.swift"; sourceTree = "<group>"; };
@@ -178,22 +147,9 @@
 		80818B5629BB4EA80003BC6F /* UIViewController+RxBarItemsViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+RxBarItemsViewType.swift"; sourceTree = "<group>"; };
 		80818B5829BB4F090003BC6F /* CloseBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseBarItem.swift; sourceTree = "<group>"; };
 		80818B5A29BB4F110003BC6F /* BackBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBarItem.swift; sourceTree = "<group>"; };
-		80818B5E29BB50180003BC6F /* UIView+ErrorHandlingViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ErrorHandlingViewType.swift"; sourceTree = "<group>"; };
-		80818B6029BB50250003BC6F /* UIViewController+ErrorHandlingViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorHandlingViewType.swift"; sourceTree = "<group>"; };
-		80818B6229BB50430003BC6F /* UIViewController+ShowImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShowImagePickerView.swift"; sourceTree = "<group>"; };
-		80818B6529BB50C90003BC6F /* UIViewController+PresentDialogProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+PresentDialogProtocol.swift"; sourceTree = "<group>"; };
-		80818B6729BB51170003BC6F /* ErrorHandlingViewModelType+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ErrorHandlingViewModelType+Extension.swift"; sourceTree = "<group>"; };
 		80818B6B29BB51B00003BC6F /* BuildConfigType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildConfigType.swift; sourceTree = "<group>"; };
-		80818B6E29BB523F0003BC6F /* UIViewController+PresentErrorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+PresentErrorProtocol.swift"; sourceTree = "<group>"; };
-		80818B7029BB525C0003BC6F /* PresentErrorProtocolImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentErrorProtocolImpl.swift; sourceTree = "<group>"; };
-		80818B7229BB52700003BC6F /* UIView+PresentErrorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+PresentErrorProtocol.swift"; sourceTree = "<group>"; };
 		80818B7529BB54DB0003BC6F /* Error+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Helper.swift"; sourceTree = "<group>"; };
 		80818B7929BB6DF50003BC6F /* UIView+Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Toast.swift"; sourceTree = "<group>"; };
-		80818B7D29BB70FB0003BC6F /* ExpenseTrackerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTrackerAPI.swift; sourceTree = "<group>"; };
-		80818B7F29BB71090003BC6F /* ExpressTrackerConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressTrackerConstant.swift; sourceTree = "<group>"; };
-		80818B8229BB71380003BC6F /* ExpenseTrackerBaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTrackerBaseRequest.swift; sourceTree = "<group>"; };
-		80818B8429BB71410003BC6F /* ExpenseTrackerBaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTrackerBaseResponse.swift; sourceTree = "<group>"; };
-		80818B8629BB71520003BC6F /* ExpenseTrackerBaseTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTrackerBaseTarget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,8 +185,6 @@
 		8017C81329BB20870020D279 /* Architecture */ = {
 			isa = PBXGroup;
 			children = (
-				80818B6D29BB522C0003BC6F /* PresentError */,
-				80818B6429BB50B30003BC6F /* PresentDialog */,
 				80818B5C29BB4F160003BC6F /* BarItemsView */,
 				80818AD929BB3BCD0003BC6F /* MVVM */,
 				80818AE329BB3D350003BC6F /* NavigationController */,
@@ -434,10 +388,6 @@
 				80818ADC29BB3C320003BC6F /* BaseViewController.swift */,
 				80818AE829BB3DA30003BC6F /* BaseViewModelType.swift */,
 				80818B3F29BB4BB80003BC6F /* BaseViewModel.swift */,
-				80818B5E29BB50180003BC6F /* UIView+ErrorHandlingViewType.swift */,
-				80818B6029BB50250003BC6F /* UIViewController+ErrorHandlingViewType.swift */,
-				80818B6229BB50430003BC6F /* UIViewController+ShowImagePickerView.swift */,
-				80818B6729BB51170003BC6F /* ErrorHandlingViewModelType+Extension.swift */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
@@ -457,10 +407,6 @@
 			children = (
 				80818B4E29BB4E790003BC6F /* BarItemsView */,
 				80818B2929BB462C0003BC6F /* DismissWithResult */,
-				80818B2229BB45C60003BC6F /* PresentWithIntent */,
-				80818B1D29BB454D0003BC6F /* PresentDialog */,
-				80818B1829BB43B80003BC6F /* PresentError */,
-				80818B1129BB431F0003BC6F /* ErrorHandling */,
 				80818AF829BB400A0003BC6F /* Dispose */,
 				80818AE029BB3D040003BC6F /* MVVM */,
 			);
@@ -558,43 +504,6 @@
 			path = Swizzling;
 			sourceTree = "<group>";
 		};
-		80818B1129BB431F0003BC6F /* ErrorHandling */ = {
-			isa = PBXGroup;
-			children = (
-				80818B1229BB43310003BC6F /* ErrorHandlingViewType.swift */,
-				80818B1429BB433A0003BC6F /* ErrorHandlingViewModelType.swift */,
-				80818B1629BB43450003BC6F /* ShowLoginSessionExpireViewType.swift */,
-			);
-			path = ErrorHandling;
-			sourceTree = "<group>";
-		};
-		80818B1829BB43B80003BC6F /* PresentError */ = {
-			isa = PBXGroup;
-			children = (
-				80818B1929BB43C50003BC6F /* PresentErrorProtocol.swift */,
-			);
-			path = PresentError;
-			sourceTree = "<group>";
-		};
-		80818B1D29BB454D0003BC6F /* PresentDialog */ = {
-			isa = PBXGroup;
-			children = (
-				80818B1E29BB45590003BC6F /* PresentDialogProtocol.swift */,
-				80818B2029BB45690003BC6F /* DialogAction.swift */,
-			);
-			path = PresentDialog;
-			sourceTree = "<group>";
-		};
-		80818B2229BB45C60003BC6F /* PresentWithIntent */ = {
-			isa = PBXGroup;
-			children = (
-				80818B2329BB45DB0003BC6F /* PresentWithIntentProtocol.swift */,
-				80818B2529BB45E20003BC6F /* PresentWithIntentProtocol+Extension.swift */,
-				80818B2729BB45F20003BC6F /* UIViewController+PresentWithIntentProtocol.swift */,
-			);
-			path = PresentWithIntent;
-			sourceTree = "<group>";
-		};
 		80818B2929BB462C0003BC6F /* DismissWithResult */ = {
 			isa = PBXGroup;
 			children = (
@@ -662,14 +571,6 @@
 			path = BarItems;
 			sourceTree = "<group>";
 		};
-		80818B6429BB50B30003BC6F /* PresentDialog */ = {
-			isa = PBXGroup;
-			children = (
-				80818B6529BB50C90003BC6F /* UIViewController+PresentDialogProtocol.swift */,
-			);
-			path = PresentDialog;
-			sourceTree = "<group>";
-		};
 		80818B6929BB51970003BC6F /* Constant */ = {
 			isa = PBXGroup;
 			children = (
@@ -684,16 +585,6 @@
 				80818B6B29BB51B00003BC6F /* BuildConfigType.swift */,
 			);
 			path = BuildConfig;
-			sourceTree = "<group>";
-		};
-		80818B6D29BB522C0003BC6F /* PresentError */ = {
-			isa = PBXGroup;
-			children = (
-				80818B6E29BB523F0003BC6F /* UIViewController+PresentErrorProtocol.swift */,
-				80818B7029BB525C0003BC6F /* PresentErrorProtocolImpl.swift */,
-				80818B7229BB52700003BC6F /* UIView+PresentErrorProtocol.swift */,
-			);
-			path = PresentError;
 			sourceTree = "<group>";
 		};
 		80818B7429BB53540003BC6F /* Error */ = {
@@ -723,29 +614,8 @@
 		80818B7B29BB706B0003BC6F /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				80818B7C29BB70730003BC6F /* ExpenseTrackerAPI */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		80818B7C29BB70730003BC6F /* ExpenseTrackerAPI */ = {
-			isa = PBXGroup;
-			children = (
-				80818B8129BB71100003BC6F /* Model */,
-				80818B7D29BB70FB0003BC6F /* ExpenseTrackerAPI.swift */,
-				80818B7F29BB71090003BC6F /* ExpressTrackerConstant.swift */,
-			);
-			path = ExpenseTrackerAPI;
-			sourceTree = "<group>";
-		};
-		80818B8129BB71100003BC6F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				80818B8229BB71380003BC6F /* ExpenseTrackerBaseRequest.swift */,
-				80818B8429BB71410003BC6F /* ExpenseTrackerBaseResponse.swift */,
-				80818B8629BB71520003BC6F /* ExpenseTrackerBaseTarget.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		C33940A11631D1BEFAD358AF /* Frameworks */ = {
@@ -872,9 +742,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80818B1529BB433A0003BC6F /* ErrorHandlingViewModelType.swift in Sources */,
 				80818AEE29BB3E740003BC6F /* DisposeBagHolderType.swift in Sources */,
-				80818B8529BB71410003BC6F /* ExpenseTrackerBaseResponse.swift in Sources */,
 				80818B5729BB4EA80003BC6F /* UIViewController+RxBarItemsViewType.swift in Sources */,
 				80818AF029BB3E7F0003BC6F /* DisposeBagHolderType+Extension.swift in Sources */,
 				80818AE529BB3D4D0003BC6F /* BaseNavigationChildViewController.swift in Sources */,
@@ -883,15 +751,11 @@
 				80818AF529BB3F430003BC6F /* AssociatedObjectUtility.swift in Sources */,
 				80818B4929BB4C730003BC6F /* SwiftDateExtensions.swift in Sources */,
 				80818B0529BB418C0003BC6F /* UIView+Disposable.swift in Sources */,
-				80818B6629BB50C90003BC6F /* UIViewController+PresentDialogProtocol.swift in Sources */,
-				80818B6329BB50430003BC6F /* UIViewController+ShowImagePickerView.swift in Sources */,
-				80818B8729BB71520003BC6F /* ExpenseTrackerBaseTarget.swift in Sources */,
 				80818B3129BB46680003BC6F /* DismissWithResultProtocol+Rx.swift in Sources */,
 				8017C83529BB24D80020D279 /* LoginViewController.swift in Sources */,
 				80818AF729BB3F510003BC6F /* WeakAssociateObjectUtility.swift in Sources */,
 				80818B5129BB4E870003BC6F /* BarItem.swift in Sources */,
 				8017C82129BB21900020D279 /* DI+DIRegistor.swift in Sources */,
-				80818B1A29BB43C50003BC6F /* PresentErrorProtocol.swift in Sources */,
 				80818B1C29BB44AF0003BC6F /* Observable+Ext.swift in Sources */,
 				80818AFD29BB408A0003BC6F /* App+Logger.swift in Sources */,
 				80818B4029BB4BB80003BC6F /* BaseViewModel.swift in Sources */,
@@ -899,43 +763,29 @@
 				80818B2F29BB464D0003BC6F /* DismissWithResultProtocol+Extension.swift in Sources */,
 				80818B3B29BB4A690003BC6F /* ActivityIndicator.swift in Sources */,
 				80818B6C29BB51B00003BC6F /* BuildConfigType.swift in Sources */,
-				80818B7E29BB70FB0003BC6F /* ExpenseTrackerAPI.swift in Sources */,
 				80818B3729BB4A550003BC6F /* RxOperator.swift in Sources */,
 				80818B2B29BB463A0003BC6F /* DismissResult.swift in Sources */,
-				80818B6F29BB523F0003BC6F /* UIViewController+PresentErrorProtocol.swift in Sources */,
 				8017C82B29BB22420020D279 /* DI+Model.swift in Sources */,
-				80818B8329BB71380003BC6F /* ExpenseTrackerBaseRequest.swift in Sources */,
-				80818B2429BB45DB0003BC6F /* PresentWithIntentProtocol.swift in Sources */,
 				80192C8D29BAC6B400A3D17D /* AppDelegate.swift in Sources */,
 				80818B4D29BB4DBF0003BC6F /* Enums.swift in Sources */,
 				80818AE729BB3D590003BC6F /* BaseNavigationController.swift in Sources */,
 				80818B7629BB54DB0003BC6F /* Error+Helper.swift in Sources */,
 				80818B2D29BB46420003BC6F /* DismissWithResultProtocol.swift in Sources */,
 				80818B4729BB4C6C0003BC6F /* EnumRegionExtensions.swift in Sources */,
-				80818B2829BB45F20003BC6F /* UIViewController+PresentWithIntentProtocol.swift in Sources */,
 				80818B4329BB4C5D0003BC6F /* DateProvider.swift in Sources */,
-				80818B6129BB50250003BC6F /* UIViewController+ErrorHandlingViewType.swift in Sources */,
-				80818B1329BB43310003BC6F /* ErrorHandlingViewType.swift in Sources */,
 				80818B3529BB48420003BC6F /* UIViewController+DismissWithResultProtocol.swift in Sources */,
 				8017C81B29BB21190020D279 /* DI+Login.swift in Sources */,
-				80818B8029BB71090003BC6F /* ExpressTrackerConstant.swift in Sources */,
-				80818B7129BB525C0003BC6F /* PresentErrorProtocolImpl.swift in Sources */,
 				80818B0D29BB41EC0003BC6F /* UIViewController+SwizzleDOWRFP.swift in Sources */,
 				8017C82D29BB224C0020D279 /* DI+Constant.swift in Sources */,
 				8017C83129BB22670020D279 /* DI+Helper.swift in Sources */,
 				80818B0B29BB41DC0003BC6F /* UIViewController+DisposeOnWillRemoveFromParentType.swift in Sources */,
-				80818B1F29BB45590003BC6F /* PresentDialogProtocol.swift in Sources */,
-				80818B2129BB45690003BC6F /* DialogAction.swift in Sources */,
 				80818B5329BB4E8E0003BC6F /* BarItemsViewType.swift in Sources */,
-				80818B6829BB51170003BC6F /* ErrorHandlingViewModelType+Extension.swift in Sources */,
 				80818B3329BB46A40003BC6F /* UIViewController+DismissWithResultHelper.swift in Sources */,
 				8017C83729BB24E10020D279 /* LoginViewModel.swift in Sources */,
 				8017C83929BB24EE0020D279 /* LoginTypes.swift in Sources */,
-				80818B7329BB52700003BC6F /* UIView+PresentErrorProtocol.swift in Sources */,
 				80818B4B29BB4D2B0003BC6F /* DateTimeFormats.swift in Sources */,
 				80818B3D29BB4A720003BC6F /* StopEventTracker.swift in Sources */,
 				8017C82529BB21D90020D279 /* DI+Service.swift in Sources */,
-				80818B2629BB45E20003BC6F /* PresentWithIntentProtocol+Extension.swift in Sources */,
 				80818B5B29BB4F110003BC6F /* BackBarItem.swift in Sources */,
 				80818B1029BB42740003BC6F /* SwizzlingUtility.swift in Sources */,
 				80818B0329BB416E0003BC6F /* DisposeOnWillRemoveFromParentType+Extension.swift in Sources */,
@@ -948,8 +798,6 @@
 				80818ADD29BB3C320003BC6F /* BaseViewController.swift in Sources */,
 				80818B5929BB4F090003BC6F /* CloseBarItem.swift in Sources */,
 				80192C8F29BAC6B400A3D17D /* SceneDelegate.swift in Sources */,
-				80818B1729BB43450003BC6F /* ShowLoginSessionExpireViewType.swift in Sources */,
-				80818B5F29BB50180003BC6F /* UIView+ErrorHandlingViewType.swift in Sources */,
 				80818B0929BB41BB0003BC6F /* UIViewController+DisposeBagHolderType.swift in Sources */,
 				80818B3929BB4A5F0003BC6F /* ErrorTracker.swift in Sources */,
 				8017C83329BB229A0020D279 /* DI+ViewPairs.swift in Sources */,

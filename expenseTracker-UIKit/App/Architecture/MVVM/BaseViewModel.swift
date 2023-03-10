@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class BaseViewModel: BaseViewModelType, ViewModelType, ErrorHandlingViewModelType, ReactiveCompatible {
+class BaseViewModel: BaseViewModelType, ViewModelType, ReactiveCompatible {
     //MARK: Input
     public var startLoad: Driver<Void> = .never()
     public var startResume: Driver<Void> = .never()
@@ -18,7 +18,6 @@ class BaseViewModel: BaseViewModelType, ViewModelType, ErrorHandlingViewModelTyp
     public var startExit: Driver<Void> = .never()
     //MARK: Output
     public var showLoading: Driver<Bool> = .never()
-    public var showError: ErrorHandlingOutput = .none()
     public var contentReady: Driver<Bool> = .never()
     public var exitWithResult: Driver<DismissResult> = .never()
     //MARK: Dependency
@@ -29,13 +28,10 @@ class BaseViewModel: BaseViewModelType, ViewModelType, ErrorHandlingViewModelTyp
     let activityIndicator = ActivityIndicator()
     let errorTracker = ErrorTracker()
     let stopEventTracker = StopEventTracker()
-    weak var errorView: ErrorHandlingViewType?
     
     //MARK: transform
     func transform() {
         showLoading = activityIndicator.asDriver()
-        
-        _ = self.transformErrorHandling(input: ErrorHandlingInput(view: errorView, errorTracker: errorTracker)) // To show error alert if errorTracker detect errors
     }
     
     func subscribe() {
@@ -51,7 +47,6 @@ class BaseViewModel: BaseViewModelType, ViewModelType, ErrorHandlingViewModelTyp
         startExit = .never()
         //Output
         showLoading = .never()
-        showError = .none()
         contentReady = .never()
         exitWithResult = .never()
         //DisposeBag

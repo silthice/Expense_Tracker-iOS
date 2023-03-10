@@ -7,5 +7,5 @@
 
 import Foundation
 
-protocol BaseViewType: ErrorHandlingViewType, PresentDialogProtocol, PresentWithIntentProtocol, DismissWithResultProtocol, DisposeOnWillRemoveFromParentType {
+protocol BaseViewType: DismissWithResultProtocol, DisposeOnWillRemoveFromParentType {
 }
