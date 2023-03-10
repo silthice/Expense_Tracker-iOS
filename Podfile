@@ -24,5 +24,21 @@ target 'expenseTracker-UIKit' do
     
     # Network
     pod 'Moya'
+    
+    # Logger
+    pod 'XCGLogger', '~> 7.0.0'
+    pod 'XCGLogger/UserInfoHelpers'
+    
+    #Security
+    pod 'CryptoSwift', '~> 1.0'
+    
+    # UI
+    pod 'SwiftRichString'
+
+    # Persistency
+    pod 'SwiftyUserDefaults'
+    
+    # Alert
+    pod 'Toast-Swift'
 
 end
