@@ -6,39 +6,54 @@ target 'expenseTracker-UIKit' do
   use_frameworks!
 
   # Pods for expenseTracker-UIKit
-    # Dependency Injection
-    pod 'Swinject', '~> 2.7.1'
+  # Dependency Injection
+   pod 'Swinject', '~> 2.7.1'
 
-    # Reactive
-    pod 'RxSwift', '~> 6.2.0'
-    pod 'RxCocoa', '~> 6.2.0'
-    
-    # Date Utility
-    pod 'SwiftDate', '~> 5.1.0'
+   # Reactive
+   pod 'RxSwift', '~> 6.2.0'
+   pod 'RxCocoa', '~> 6.2.0'
+   
+   # Reactive Utility
+   pod 'RxDataSources', '~> 5.0.0'
+   pod 'RxGesture', '~> 4.0.2'
+   pod 'RxBiBinding', '~> 0.3.5'
 
-    # Utility
-    pod 'SwifterSwift', '~> 4.6.0'
-    
-    # UI
-    pod 'NibDesignable', :git => 'https://github.com/wei2lee/NibDesignable.git'
-    
-    # Network
-    pod 'Moya'
-    
-    # Logger
-    pod 'XCGLogger', '~> 7.0.0'
-    pod 'XCGLogger/UserInfoHelpers'
-    
-    #Security
-    pod 'CryptoSwift', '~> 1.0'
-    
-    # UI
-    pod 'SwiftRichString'
+   # Date Utility
+   pod 'SwiftDate', '~> 5.1.0'
 
-    # Persistency
-    pod 'SwiftyUserDefaults'
-    
-    # Alert
-    pod 'Toast-Swift'
+   # Utility
+   pod 'SwifterSwift', '~> 4.6.0'
+
+   # UI
+   pod 'MBProgressHUD', '~> 1.1.0'
+   pod 'NibDesignable', :git => 'https://github.com/wei2lee/NibDesignable.git'
+   pod 'ESPullToRefresh'
+   pod 'CHIPageControl/Jaloro'
+
+   # Network
+   pod 'Moya'
+
+   # Logger
+   pod 'XCGLogger', '~> 7.0.0'
+   pod 'XCGLogger/UserInfoHelpers'
+
+   #Persistency
+   pod 'SwiftyUserDefaults', '4.0.0-beta.2'
+   pod 'CodableExtensions'
+
+   #ImageUtil
+   pod 'Kingfisher', '~> 5.3.0'
+   
+   # UI
+   pod 'SwiftRichString'
+   
+   # Alert
+   pod 'Toast-Swift'
+
+   # Dropdown
+   pod 'DropDown'
+
+   # keyboard
+   pod 'IQKeyboardManagerSwift', '~> 6.5.0'
 
 end
