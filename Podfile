@@ -10,8 +10,8 @@ target 'expenseTracker-UIKit' do
    pod 'Swinject', '~> 2.7.1'
 
    # Reactive
-   pod 'RxSwift', '~> 6.2.0'
-   pod 'RxCocoa', '~> 6.2.0'
+   pod 'RxSwift'
+   pod 'RxCocoa'
    
    # Reactive Utility
    pod 'RxDataSources', '~> 5.0.0'
