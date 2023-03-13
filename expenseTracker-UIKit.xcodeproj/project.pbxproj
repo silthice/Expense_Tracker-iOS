@@ -137,6 +137,11 @@
 		80CAB1C529BEF343002A98B8 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CAB1C429BEF343002A98B8 /* CustomColors.swift */; };
 		80CAB1C729BEF3C4002A98B8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CAB1C629BEF3C4002A98B8 /* Constants.swift */; };
 		80CAB1C929BEFF61002A98B8 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CAB1C829BEFF61002A98B8 /* CustomFonts.swift */; };
+		80CAB1CE29BF17C5002A98B8 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CAB1CC29BF17C5002A98B8 /* SignUpViewController.swift */; };
+		80CAB1D129BF185F002A98B8 /* DI+SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CAB1D029BF185F002A98B8 /* DI+SignUp.swift */; };
+		80CAB1D329BF1872002A98B8 /* SignUpTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CAB1D229BF1872002A98B8 /* SignUpTypes.swift */; };
+		80CAB1D529BF187D002A98B8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CAB1D429BF187D002A98B8 /* SignUpViewModel.swift */; };
+		80CAB1D929BF1A30002A98B8 /* SignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80CAB1D829BF1A30002A98B8 /* SignUpViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -274,6 +279,11 @@
 		80CAB1C429BEF343002A98B8 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		80CAB1C629BEF3C4002A98B8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		80CAB1C829BEFF61002A98B8 /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
+		80CAB1CC29BF17C5002A98B8 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		80CAB1D029BF185F002A98B8 /* DI+SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DI+SignUp.swift"; sourceTree = "<group>"; };
+		80CAB1D229BF1872002A98B8 /* SignUpTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTypes.swift; sourceTree = "<group>"; };
+		80CAB1D429BF187D002A98B8 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		80CAB1D829BF1A30002A98B8 /* SignUpViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1016,8 +1026,29 @@
 		80CAB1C229BED818002A98B8 /* Sign up */ = {
 			isa = PBXGroup;
 			children = (
+				80CAB1D829BF1A30002A98B8 /* SignUpViewController.storyboard */,
+				80CAB1CB29BF17B3002A98B8 /* Constant */,
+				80CAB1CA29BF17AD002A98B8 /* Scene */,
 			);
 			path = "Sign up";
+			sourceTree = "<group>";
+		};
+		80CAB1CA29BF17AD002A98B8 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				80CAB1CC29BF17C5002A98B8 /* SignUpViewController.swift */,
+				80CAB1D429BF187D002A98B8 /* SignUpViewModel.swift */,
+				80CAB1D229BF1872002A98B8 /* SignUpTypes.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		80CAB1CB29BF17B3002A98B8 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				80CAB1D029BF185F002A98B8 /* DI+SignUp.swift */,
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 		C33940A11631D1BEFAD358AF /* Frameworks */ = {
@@ -1093,6 +1124,7 @@
 				800E5C1829BB9F260099AB01 /* LoginViewController.storyboard in Resources */,
 				80192C9929BAC6B400A3D17D /* LaunchScreen.storyboard in Resources */,
 				80192C9629BAC6B400A3D17D /* Assets.xcassets in Resources */,
+				80CAB1D929BF1A30002A98B8 /* SignUpViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1174,6 +1206,7 @@
 				80818B5129BB4E870003BC6F /* BarItem.swift in Sources */,
 				8017C82129BB21900020D279 /* DI+DIRegistor.swift in Sources */,
 				80818BBF29BB7C380003BC6F /* DictionaryExtension.swift in Sources */,
+				80CAB1CE29BF17C5002A98B8 /* SignUpViewController.swift in Sources */,
 				80818B1C29BB44AF0003BC6F /* Observable+Ext.swift in Sources */,
 				80818AFD29BB408A0003BC6F /* App+Logger.swift in Sources */,
 				80818B4029BB4BB80003BC6F /* BaseViewModel.swift in Sources */,
@@ -1203,6 +1236,7 @@
 				80818C0229BB7E6B0003BC6F /* UIImage+Compress.swift in Sources */,
 				80818BA029BB79440003BC6F /* UIViewController+RxViewControllerCycle.swift in Sources */,
 				80818C2429BB87BA0003BC6F /* PresentationBinding.swift in Sources */,
+				80CAB1D329BF1872002A98B8 /* SignUpTypes.swift in Sources */,
 				8017C81B29BB21190020D279 /* DI+Login.swift in Sources */,
 				80818B0D29BB41EC0003BC6F /* UIViewController+SwizzleDOWRFP.swift in Sources */,
 				80CAB1C529BEF343002A98B8 /* CustomColors.swift in Sources */,
@@ -1225,6 +1259,7 @@
 				8017C82529BB21D90020D279 /* DI+Service.swift in Sources */,
 				80818BE829BB7E3B0003BC6F /* UINavigationController+Extension.swift in Sources */,
 				80818B5B29BB4F110003BC6F /* BackBarItem.swift in Sources */,
+				80CAB1D529BF187D002A98B8 /* SignUpViewModel.swift in Sources */,
 				80818BE529BB7C680003BC6F /* Date+Calculation.swift in Sources */,
 				80818B1029BB42740003BC6F /* SwizzlingUtility.swift in Sources */,
 				80818B0329BB416E0003BC6F /* DisposeOnWillRemoveFromParentType+Extension.swift in Sources */,
@@ -1262,6 +1297,7 @@
 				80818B8E29BB76B00003BC6F /* UIView+RxIsShow.swift in Sources */,
 				80818BCF29BB7C3F0003BC6F /* String+ToDate.swift in Sources */,
 				80818B7A29BB6DF50003BC6F /* UIView+Toast.swift in Sources */,
+				80CAB1D129BF185F002A98B8 /* DI+SignUp.swift in Sources */,
 				80818AE229BB3D100003BC6F /* ViewType.swift in Sources */,
 				80818BCB29BB7C3F0003BC6F /* String+StringToDictionary.swift in Sources */,
 				80818AFA29BB40300003BC6F /* UIViewController+Disposable.swift in Sources */,

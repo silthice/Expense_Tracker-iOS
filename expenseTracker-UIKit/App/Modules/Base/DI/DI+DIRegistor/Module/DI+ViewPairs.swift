@@ -16,6 +16,7 @@ extension DI {
 extension DI.ViewPairs {
     static func register() {
         Login.register()
+        SignUp.register()
     }
 }
 

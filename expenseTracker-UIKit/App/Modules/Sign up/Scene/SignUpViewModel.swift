@@ -1,22 +1,21 @@
 //
-//  LoginViewModel.swift
+//  SignUpViewModel.swift
 //  expenseTracker-UIKit
 //
-//  Created by Giap on 10/03/2023.
+//  Created by Giap on 13/03/2023.
 //
-
 
 import Foundation
 import RxSwift
 import RxCocoa
 import SwifterSwift
 
-final class LoginViewModel: BaseViewModel {
+final class SignUpViewModel: BaseViewModel {
     
     //MARK: - Inputs
     
     //MARK: - Outputs
-    public weak var view: LoginViewType? = nil
+    public weak var view: SignUpViewType? = nil
     
     //MARK: - Dependencies
     
@@ -42,6 +41,6 @@ final class LoginViewModel: BaseViewModel {
     }
 }
 
-extension LoginViewModel {
+extension SignUpViewModel {
 }
 
