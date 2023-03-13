@@ -13,17 +13,20 @@ class LandingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print("giap check landing page")
+        self.redirect()
     }
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension LandingViewController {
+    private func redirect() {
+        //Add Here
+        //If login redirect to main tab
+        //Else redirect to login/sign up
+        let screen = DI.resolver.resolve(LoginViewControllerType.self)!
+        let vc = UINavigationController(rootViewController: screen)
+        UIApplication.shared.windows.first?.rootViewController = vc
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
-    */
-
 }

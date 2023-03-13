@@ -8,13 +8,6 @@
 import Foundation
 import SwiftDate
 
-enum EnumBuildConfiguration:String {
-    case QAT
-    case UAT
-    case PRODUCTION
-    case PROXY
-}
-
 public enum EnumLocale {
     case usEnglish
     var locale: Locale {

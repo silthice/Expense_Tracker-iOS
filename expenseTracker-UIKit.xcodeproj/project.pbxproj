@@ -134,6 +134,9 @@
 		80818C2429BB87BA0003BC6F /* PresentationBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818C2129BB87BA0003BC6F /* PresentationBinding.swift */; };
 		80818C2829BB888B0003BC6F /* ListEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80818C2629BB888B0003BC6F /* ListEmptyView.xib */; };
 		80818C2929BB888B0003BC6F /* ListEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818C2729BB888B0003BC6F /* ListEmptyView.swift */; };
+		80CAB1C529BEF343002A98B8 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CAB1C429BEF343002A98B8 /* CustomColors.swift */; };
+		80CAB1C729BEF3C4002A98B8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CAB1C629BEF3C4002A98B8 /* Constants.swift */; };
+		80CAB1C929BEFF61002A98B8 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CAB1C829BEFF61002A98B8 /* CustomFonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -268,6 +271,9 @@
 		80818C2129BB87BA0003BC6F /* PresentationBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationBinding.swift; sourceTree = "<group>"; };
 		80818C2629BB888B0003BC6F /* ListEmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListEmptyView.xib; sourceTree = "<group>"; };
 		80818C2729BB888B0003BC6F /* ListEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListEmptyView.swift; sourceTree = "<group>"; };
+		80CAB1C429BEF343002A98B8 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
+		80CAB1C629BEF3C4002A98B8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		80CAB1C829BEFF61002A98B8 /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +302,9 @@
 			children = (
 				80818B4A29BB4D2B0003BC6F /* DateTimeFormats.swift */,
 				80818B4C29BB4DBF0003BC6F /* Enums.swift */,
+				80CAB1C629BEF3C4002A98B8 /* Constants.swift */,
+				80CAB1C429BEF343002A98B8 /* CustomColors.swift */,
+				80CAB1C829BEFF61002A98B8 /* CustomFonts.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -318,6 +327,7 @@
 				80818AFB29BB407E0003BC6F /* App */,
 				8017C81C29BB214C0020D279 /* Base */,
 				8017C81529BB20AB0020D279 /* Login */,
+				80CAB1C229BED818002A98B8 /* Sign up */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1003,6 +1013,13 @@
 			path = ListEmptyView;
 			sourceTree = "<group>";
 		};
+		80CAB1C229BED818002A98B8 /* Sign up */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Sign up";
+			sourceTree = "<group>";
+		};
 		C33940A11631D1BEFAD358AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1188,10 +1205,12 @@
 				80818C2429BB87BA0003BC6F /* PresentationBinding.swift in Sources */,
 				8017C81B29BB21190020D279 /* DI+Login.swift in Sources */,
 				80818B0D29BB41EC0003BC6F /* UIViewController+SwizzleDOWRFP.swift in Sources */,
+				80CAB1C529BEF343002A98B8 /* CustomColors.swift in Sources */,
 				8017C82D29BB224C0020D279 /* DI+Constant.swift in Sources */,
 				8017C83129BB22670020D279 /* DI+Helper.swift in Sources */,
 				80818B0B29BB41DC0003BC6F /* UIViewController+DisposeOnWillRemoveFromParentType.swift in Sources */,
 				80818B5329BB4E8E0003BC6F /* BarItemsViewType.swift in Sources */,
+				80CAB1C729BEF3C4002A98B8 /* Constants.swift in Sources */,
 				80818B3329BB46A40003BC6F /* UIViewController+DismissWithResultHelper.swift in Sources */,
 				8017C83729BB24E10020D279 /* LoginViewModel.swift in Sources */,
 				80818BE129BB7C590003BC6F /* NSErrorUserInfoKey+Helper.swift in Sources */,
@@ -1211,6 +1230,7 @@
 				80818B0329BB416E0003BC6F /* DisposeOnWillRemoveFromParentType+Extension.swift in Sources */,
 				80818BC929BB7C3F0003BC6F /* String+IsNilOrEmpty.swift in Sources */,
 				80818BD929BB7C540003BC6F /* NSObject+ExtraProperty.swift in Sources */,
+				80CAB1C929BEFF61002A98B8 /* CustomFonts.swift in Sources */,
 				80818BBC29BB7C300003BC6F /* Double+SBKFractionPoint.swift in Sources */,
 				80818BF329BB7E5F0003BC6F /* UITableView+Extension.swift in Sources */,
 				80818ADB29BB3BD90003BC6F /* BaseViewType.swift in Sources */,
@@ -1396,6 +1416,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Landing;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				"INFOPLIST_KEY_UIUserInterfaceStyle[sdk=*]" = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1426,6 +1447,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Landing;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				"INFOPLIST_KEY_UIUserInterfaceStyle[sdk=*]" = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
