@@ -27,6 +27,7 @@
 		80192C9629BAC6B400A3D17D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80192C9529BAC6B400A3D17D /* Assets.xcassets */; };
 		80192C9929BAC6B400A3D17D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80192C9729BAC6B400A3D17D /* LaunchScreen.storyboard */; };
 		80192CAC29BB0FBE00A3D17D /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80192CAB29BB0FBE00A3D17D /* Landing.storyboard */; };
+		803EB0AE29C015F400549E3D /* ExpenseTrackerEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0AD29C015F400549E3D /* ExpenseTrackerEnum.swift */; };
 		80818ADB29BB3BD90003BC6F /* BaseViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818ADA29BB3BD90003BC6F /* BaseViewType.swift */; };
 		80818ADD29BB3C320003BC6F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818ADC29BB3C320003BC6F /* BaseViewController.swift */; };
 		80818AE229BB3D100003BC6F /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818AE129BB3D100003BC6F /* ViewType.swift */; };
@@ -169,6 +170,7 @@
 		80192C9829BAC6B400A3D17D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80192C9A29BAC6B400A3D17D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80192CAB29BB0FBE00A3D17D /* Landing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Landing.storyboard; sourceTree = "<group>"; };
+		803EB0AD29C015F400549E3D /* ExpenseTrackerEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTrackerEnum.swift; sourceTree = "<group>"; };
 		80818ADA29BB3BD90003BC6F /* BaseViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewType.swift; sourceTree = "<group>"; };
 		80818ADC29BB3C320003BC6F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		80818AE129BB3D100003BC6F /* ViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 				80CAB1C629BEF3C4002A98B8 /* Constants.swift */,
 				80CAB1C429BEF343002A98B8 /* CustomColors.swift */,
 				80CAB1C829BEFF61002A98B8 /* CustomFonts.swift */,
+				803EB0AD29C015F400549E3D /* ExpenseTrackerEnum.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1260,6 +1263,7 @@
 				80818BE829BB7E3B0003BC6F /* UINavigationController+Extension.swift in Sources */,
 				80818B5B29BB4F110003BC6F /* BackBarItem.swift in Sources */,
 				80CAB1D529BF187D002A98B8 /* SignUpViewModel.swift in Sources */,
+				803EB0AE29C015F400549E3D /* ExpenseTrackerEnum.swift in Sources */,
 				80818BE529BB7C680003BC6F /* Date+Calculation.swift in Sources */,
 				80818B1029BB42740003BC6F /* SwizzlingUtility.swift in Sources */,
 				80818B0329BB416E0003BC6F /* DisposeOnWillRemoveFromParentType+Extension.swift in Sources */,

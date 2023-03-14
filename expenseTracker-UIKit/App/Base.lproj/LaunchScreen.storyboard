@@ -18,16 +18,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expense Tracker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXH-Il-VC9">
-                                <rect key="frame" x="58.666666666666657" y="484.66666666666669" width="275.66666666666674" height="43.000000000000057"/>
+                                <rect key="frame" x="58.666666666666657" y="452" width="275.66666666666674" height="43"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="donutLogo" translatesAutoresizingMaskIntoConstraints="NO" id="0rU-It-oBv">
-                                <rect key="frame" x="36.666666666666657" y="159" width="320" height="320"/>
+                                <rect key="frame" x="60" y="159" width="273" height="273"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="320" id="Kcy-T7-lPQ"/>
-                                    <constraint firstAttribute="width" constant="320" id="k9O-zA-dII"/>
+                                    <constraint firstAttribute="width" secondItem="0rU-It-oBv" secondAttribute="height" multiplier="1:1" id="Kum-nt-Qps"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -36,7 +35,9 @@
                         <constraints>
                             <constraint firstItem="uXH-Il-VC9" firstAttribute="centerX" secondItem="s61-eG-c8X" secondAttribute="centerX" id="Gdx-3T-5Qx"/>
                             <constraint firstItem="0rU-It-oBv" firstAttribute="top" secondItem="s61-eG-c8X" secondAttribute="topMargin" constant="100" id="Ll3-7Z-RCP"/>
-                            <constraint firstItem="uXH-Il-VC9" firstAttribute="centerY" secondItem="s61-eG-c8X" secondAttribute="centerY" constant="80" id="eWV-aS-cev"/>
+                            <constraint firstItem="uXH-Il-VC9" firstAttribute="top" secondItem="0rU-It-oBv" secondAttribute="bottom" constant="20" id="NB8-y5-Stb"/>
+                            <constraint firstAttribute="trailing" secondItem="0rU-It-oBv" secondAttribute="trailing" constant="60" id="eBx-8a-rQO"/>
+                            <constraint firstItem="0rU-It-oBv" firstAttribute="leading" secondItem="s61-eG-c8X" secondAttribute="leading" constant="60" id="mYm-RA-BpF"/>
                             <constraint firstItem="0rU-It-oBv" firstAttribute="centerX" secondItem="s61-eG-c8X" secondAttribute="centerX" id="yzx-Cq-dBD"/>
                         </constraints>
                     </view>

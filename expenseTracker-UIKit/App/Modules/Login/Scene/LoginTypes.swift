@@ -11,6 +11,10 @@ import RxCocoa
 
 
 protocol LoginViewType: BaseViewType {
+    func login()
+    func routeToSignup()
+    func toggleShowHidePassword()
+    func updateHintContainer(textFieldType: ExpenseTracker.Enum.EnumTextFieldPurposeType, message: String)
     
 }
 

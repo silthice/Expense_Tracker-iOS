@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxBiBinding
 
 class LoginViewController: BaseViewController<LoginViewModel> {
     //MARK: - IBOutlets
@@ -18,12 +19,17 @@ class LoginViewController: BaseViewController<LoginViewModel> {
     
     @IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var loginIdTextField: UITextField!
+    @IBOutlet weak var usernameErrorLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var showHidePasswordButton: UIButton!
+    @IBOutlet weak var passwordErrorLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpGuideLabel: UILabel!
     @IBOutlet weak var signUpButton: UIButton!
     //MARK: - Constants
     //MARK: - Vars
+//    var spinner: UIActivityIndicatorView!
+    let allowedCharacterSet = CharacterSet.alphanumerics
     
     //MARK: - Lifecycles
     override func loadView() {
@@ -33,6 +39,10 @@ class LoginViewController: BaseViewController<LoginViewModel> {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+//        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     override func setupView() {
@@ -47,10 +57,19 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         viewModel.view = self
         viewModel.startLoad = self.rx.viewDidLoad
         viewModel.startExit = rx.viewWillDisappear
+        
+        viewModel.loginButtonDidTap = loginButton.rx.tap.asDriver()
+        viewModel.signUpButtonDidTap = signUpButton.rx.tap.asDriver()
+        viewModel.showHidePasswordButtonDidTap = showHidePasswordButton.rx.tap.asDriver()
     }
     
     override func subscribe() {
         super.subscribe()
+        
+        disposeBag.insert(
+            loginIdTextField.rx.text <-> viewModel.usernameRelay,
+            passwordTextField.rx.text <-> viewModel.passwordRelay
+        )
     }
 }
 
@@ -76,6 +95,7 @@ extension LoginViewController {
         signUpButton.setTitleColor(ExpenseTracker.Colors.teal_2FEBEB, for: .normal)
         
         
+        loginIdTextField.delegate = self
         loginIdTextField.autocapitalizationType = .none
         loginIdTextField.autocorrectionType = .no
         loginIdTextField.backgroundColor = .white
@@ -84,8 +104,10 @@ extension LoginViewController {
         loginIdTextField.cornerRadius = 10
         loginIdTextField.layer.masksToBounds = true
         loginIdTextField.textColor = .black
+        usernameErrorLabel.textColor = .red
+        usernameErrorLabel.font = ExpenseTracker.Fonts.sfProDisplayRegular(size: 12)
         
-        
+        passwordTextField.delegate = self
         passwordTextField.autocapitalizationType = .none
         passwordTextField.autocorrectionType = .no
         passwordTextField.backgroundColor = .white
@@ -94,28 +116,128 @@ extension LoginViewController {
         passwordTextField.cornerRadius = 10
         passwordTextField.layer.masksToBounds = true
         passwordTextField.textColor = .black
+        passwordTextField.isSecureTextEntry = true
+        passwordErrorLabel.textColor = .red
+        passwordErrorLabel.font = ExpenseTracker.Fonts.sfProDisplayRegular(size: 12)
+        passwordErrorLabel.numberOfLines = 0
         
+        showHidePasswordButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
     }
     
     func setupText() {
-        loginIdTextField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [
+        loginIdTextField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [
             .foregroundColor: UIColor.lightGray,
-            .font: ExpenseTracker.Fonts.sfProDisplayMedium(size: 18)
+            .font: ExpenseTracker.Fonts.sfProDisplayMedium(size: 15)
         ])
         
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [
             .foregroundColor: UIColor.lightGray,
-            .font: ExpenseTracker.Fonts.sfProDisplayMedium(size: 18)
+            .font: ExpenseTracker.Fonts.sfProDisplayMedium(size: 15)
         ])
         
+        usernameErrorLabel.text = ""
+        passwordErrorLabel.text = ""
         signUpGuideLabel.text = "New to Expense Tracker ?"
-        loginButton.setTitle("LOGIN", for: .normal)
-        signUpButton.setTitle("SIGN UP", for: .normal)
+        
+        loginButton.setTitleWithoutAnimation("LOGIN", for: .normal)
+        signUpButton.setTitleWithoutAnimation("SIGN UP", for: .normal)
+        
+        
         
     }
 }
 
 //MARK: - <LoginViewType>
 extension LoginViewController: LoginViewType {
+    func login() {
+        print("giap check login")
+//        self.showLoader(view: self.view)
+        
+        let spinner = self.showLoader(view: self.view, isIgnoreInteraction: false)
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+//            self.dismissLoader()
+            spinner.dismissLoader()
+        })
+    }
     
+    func routeToSignup() {
+        print("giap check route to Signup")
+        
+//        let screen = DI.container.resolve(SignUpViewControllerType.self)!
+//        self.navigationController?.pushViewController(screen)
+        
+        let screen = DI.container.resolve(SignUpViewControllerType.self)!
+        let snapshot = (UIApplication.shared.keyWindow?.snapshotView(afterScreenUpdates: true))!
+        let vc = UINavigationController(rootViewController: screen)
+        UIApplication.shared.windows.first?.rootViewController = vc
+        UIView.transition(with: snapshot,
+                          duration: 0.4,
+                          options: .transitionCrossDissolve,
+                          animations: {
+                              snapshot.layer.opacity = 0
+                          },
+                          completion: { status in
+                              snapshot.removeFromSuperview()
+                          })
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+    }
+    
+    func toggleShowHidePassword() {
+        viewModel.showPassword.accept(!viewModel.showPassword.value)
+        passwordTextField.isSecureTextEntry = !viewModel.showPassword.value
+        if viewModel.showPassword.value {
+            showHidePasswordButton.setImage(UIImage(systemName: "eye"), for: .normal)
+        } else {
+            showHidePasswordButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        }
+    }
+    
+    func updateHintContainer(textFieldType: ExpenseTracker.Enum.EnumTextFieldPurposeType, message: String) {
+        switch textFieldType {
+        case .username:
+            self.usernameErrorLabel.text = message
+        case .password:
+            self.passwordErrorLabel.text = message
+        default:
+            break
+        }
+    }
+    
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        var maxLength: Int = 18
+        if textField == passwordTextField {
+            maxLength = 20
+        } else {
+            maxLength = 18
+        }
+//        if textField == passwordTextField {
+            
+            let currentText = textField.text ?? ""
+
+            // attempt to read the range they are trying to change, or exit if we can't
+            guard let stringRange = Range(range, in: currentText) else { return false }
+            
+            // add their new text to the existing text
+            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+            
+            // make sure the result is under maxLength
+            let newText = (currentText as NSString).replacingCharacters(in: range, with: string)
+            if newText.count > maxLength {
+                return false
+            }
+            
+            // Only allow alphanumeric characters
+            let range = newText.rangeOfCharacter(from: allowedCharacterSet.inverted)
+            if range != nil {
+                return false
+            }
+//        }
+        return true
+    }
 }

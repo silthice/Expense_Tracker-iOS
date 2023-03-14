@@ -25,6 +25,7 @@ extension LandingViewController {
         //If login redirect to main tab
         //Else redirect to login/sign up
         let screen = DI.resolver.resolve(LoginViewControllerType.self)!
+//        let screen = DI.resolver.resolve(SignUpViewControllerType.self)!
         let vc = UINavigationController(rootViewController: screen)
         UIApplication.shared.windows.first?.rootViewController = vc
         UIApplication.shared.windows.first?.makeKeyAndVisible()

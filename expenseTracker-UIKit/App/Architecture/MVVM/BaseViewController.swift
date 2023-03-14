@@ -47,6 +47,7 @@ class BaseViewController<VM> : UIViewController, BaseViewType, ViewType, BaseNav
         if #available(iOS 15.0, *) {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .clear
 //            appearance.backgroundColor = N8.Colors.primaryRed
 //            appearance.shadowColor = N8.Colors.primaryRed
 //            appearance.titleTextAttributes = [.foregroundColor: N8.Colors.primaryWhite]

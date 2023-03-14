@@ -14,7 +14,8 @@ extension UIViewController {
         spinner.layer.cornerRadius = 3.0
         spinner.clipsToBounds = true
         spinner.hidesWhenStopped = true
-        spinner.style = .white
+//        spinner.style = .white
+        spinner.style = .medium
         spinner.center = view.center
         
         view.addSubview(spinner)

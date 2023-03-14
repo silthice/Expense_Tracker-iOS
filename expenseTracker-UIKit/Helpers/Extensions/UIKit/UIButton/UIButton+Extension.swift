@@ -29,4 +29,12 @@ extension UIButton {
         self.setTitleColor(.white, for: .normal)
         self.layer.cornerRadius = roundedCorner ? (self.height / 2) : 4
     }
+    
+    func setTitleWithoutAnimation(_ title: String?, for controlState: UIControl.State) {
+        UIView.performWithoutAnimation {
+            self.setTitle(title, for: controlState)
+            self.layoutIfNeeded()
+        }
+    }
+    
 }
