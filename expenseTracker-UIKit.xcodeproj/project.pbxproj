@@ -28,6 +28,15 @@
 		80192C9929BAC6B400A3D17D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80192C9729BAC6B400A3D17D /* LaunchScreen.storyboard */; };
 		80192CAC29BB0FBE00A3D17D /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80192CAB29BB0FBE00A3D17D /* Landing.storyboard */; };
 		803EB0AE29C015F400549E3D /* ExpenseTrackerEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0AD29C015F400549E3D /* ExpenseTrackerEnum.swift */; };
+		803EB0B329C0565700549E3D /* ETAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0B229C0565700549E3D /* ETAPI.swift */; };
+		803EB0BE29C0596200549E3D /* ETAPIBaseTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0BD29C0596200549E3D /* ETAPIBaseTarget.swift */; };
+		803EB0C029C05B2200549E3D /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0BF29C05B2200549E3D /* APIService.swift */; };
+		803EB0C229C05C3A00549E3D /* ETAPIResponseMessageCode+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0C129C05C3A00549E3D /* ETAPIResponseMessageCode+Constant.swift */; };
+		803EB0C429C05D8200549E3D /* ETAPIBaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0C329C05D8200549E3D /* ETAPIBaseResponse.swift */; };
+		803EB0C629C05EF300549E3D /* ETAPIBaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0C529C05EF300549E3D /* ETAPIBaseRequest.swift */; };
+		803EB0CA29C06ADB00549E3D /* UserSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0C929C06ADB00549E3D /* UserSignUp.swift */; };
+		803EB0CC29C06E8400549E3D /* BuildConfig+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0CB29C06E8400549E3D /* BuildConfig+Base.swift */; };
+		803EB0CE29C0C17A00549E3D /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0CD29C0C17A00549E3D /* Login.swift */; };
 		80818ADB29BB3BD90003BC6F /* BaseViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818ADA29BB3BD90003BC6F /* BaseViewType.swift */; };
 		80818ADD29BB3C320003BC6F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818ADC29BB3C320003BC6F /* BaseViewController.swift */; };
 		80818AE229BB3D100003BC6F /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818AE129BB3D100003BC6F /* ViewType.swift */; };
@@ -171,6 +180,15 @@
 		80192C9A29BAC6B400A3D17D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80192CAB29BB0FBE00A3D17D /* Landing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Landing.storyboard; sourceTree = "<group>"; };
 		803EB0AD29C015F400549E3D /* ExpenseTrackerEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTrackerEnum.swift; sourceTree = "<group>"; };
+		803EB0B229C0565700549E3D /* ETAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETAPI.swift; sourceTree = "<group>"; };
+		803EB0BD29C0596200549E3D /* ETAPIBaseTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETAPIBaseTarget.swift; sourceTree = "<group>"; };
+		803EB0BF29C05B2200549E3D /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		803EB0C129C05C3A00549E3D /* ETAPIResponseMessageCode+Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ETAPIResponseMessageCode+Constant.swift"; sourceTree = "<group>"; };
+		803EB0C329C05D8200549E3D /* ETAPIBaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETAPIBaseResponse.swift; sourceTree = "<group>"; };
+		803EB0C529C05EF300549E3D /* ETAPIBaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETAPIBaseRequest.swift; sourceTree = "<group>"; };
+		803EB0C929C06ADB00549E3D /* UserSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUp.swift; sourceTree = "<group>"; };
+		803EB0CB29C06E8400549E3D /* BuildConfig+Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BuildConfig+Base.swift"; sourceTree = "<group>"; };
+		803EB0CD29C0C17A00549E3D /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		80818ADA29BB3BD90003BC6F /* BaseViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewType.swift; sourceTree = "<group>"; };
 		80818ADC29BB3C320003BC6F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		80818AE129BB3D100003BC6F /* ViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
@@ -530,6 +548,45 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		803EB0AF29C0563200549E3D /* ExpenseTracker */ = {
+			isa = PBXGroup;
+			children = (
+				803EB0B229C0565700549E3D /* ETAPI.swift */,
+				803EB0C129C05C3A00549E3D /* ETAPIResponseMessageCode+Constant.swift */,
+				803EB0BF29C05B2200549E3D /* APIService.swift */,
+				803EB0B429C056D100549E3D /* Model */,
+				803EB0B529C056D800549E3D /* EndPoint */,
+			);
+			path = ExpenseTracker;
+			sourceTree = "<group>";
+		};
+		803EB0B429C056D100549E3D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				803EB0BD29C0596200549E3D /* ETAPIBaseTarget.swift */,
+				803EB0C529C05EF300549E3D /* ETAPIBaseRequest.swift */,
+				803EB0C329C05D8200549E3D /* ETAPIBaseResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		803EB0B529C056D800549E3D /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				803EB0B629C0570300549E3D /* User */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		803EB0B629C0570300549E3D /* User */ = {
+			isa = PBXGroup;
+			children = (
+				803EB0C929C06ADB00549E3D /* UserSignUp.swift */,
+				803EB0CD29C0C17A00549E3D /* Login.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		80818AD929BB3BCD0003BC6F /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
@@ -712,6 +769,7 @@
 			isa = PBXGroup;
 			children = (
 				80818B6B29BB51B00003BC6F /* BuildConfigType.swift */,
+				803EB0CB29C06E8400549E3D /* BuildConfig+Base.swift */,
 			);
 			path = BuildConfig;
 			sourceTree = "<group>";
@@ -737,6 +795,7 @@
 		80818B7B29BB706B0003BC6F /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				803EB0AF29C0563200549E3D /* ExpenseTracker */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1210,6 +1269,7 @@
 				8017C82129BB21900020D279 /* DI+DIRegistor.swift in Sources */,
 				80818BBF29BB7C380003BC6F /* DictionaryExtension.swift in Sources */,
 				80CAB1CE29BF17C5002A98B8 /* SignUpViewController.swift in Sources */,
+				803EB0C629C05EF300549E3D /* ETAPIBaseRequest.swift in Sources */,
 				80818B1C29BB44AF0003BC6F /* Observable+Ext.swift in Sources */,
 				80818AFD29BB408A0003BC6F /* App+Logger.swift in Sources */,
 				80818B4029BB4BB80003BC6F /* BaseViewModel.swift in Sources */,
@@ -1239,10 +1299,14 @@
 				80818C0229BB7E6B0003BC6F /* UIImage+Compress.swift in Sources */,
 				80818BA029BB79440003BC6F /* UIViewController+RxViewControllerCycle.swift in Sources */,
 				80818C2429BB87BA0003BC6F /* PresentationBinding.swift in Sources */,
+				803EB0C029C05B2200549E3D /* APIService.swift in Sources */,
 				80CAB1D329BF1872002A98B8 /* SignUpTypes.swift in Sources */,
 				8017C81B29BB21190020D279 /* DI+Login.swift in Sources */,
+				803EB0CE29C0C17A00549E3D /* Login.swift in Sources */,
 				80818B0D29BB41EC0003BC6F /* UIViewController+SwizzleDOWRFP.swift in Sources */,
 				80CAB1C529BEF343002A98B8 /* CustomColors.swift in Sources */,
+				803EB0B329C0565700549E3D /* ETAPI.swift in Sources */,
+				803EB0CC29C06E8400549E3D /* BuildConfig+Base.swift in Sources */,
 				8017C82D29BB224C0020D279 /* DI+Constant.swift in Sources */,
 				8017C83129BB22670020D279 /* DI+Helper.swift in Sources */,
 				80818B0B29BB41DC0003BC6F /* UIViewController+DisposeOnWillRemoveFromParentType.swift in Sources */,
@@ -1252,7 +1316,9 @@
 				8017C83729BB24E10020D279 /* LoginViewModel.swift in Sources */,
 				80818BE129BB7C590003BC6F /* NSErrorUserInfoKey+Helper.swift in Sources */,
 				80818B9529BB779E0003BC6F /* UIView+Opacity.swift in Sources */,
+				803EB0BE29C0596200549E3D /* ETAPIBaseTarget.swift in Sources */,
 				80818C1329BB80D30003BC6F /* BasePaginationViewController.swift in Sources */,
+				803EB0C429C05D8200549E3D /* ETAPIBaseResponse.swift in Sources */,
 				80818B9329BB77860003BC6F /* UIView+Visibility.swift in Sources */,
 				80818BDF29BB7C590003BC6F /* NSError+Helper.swift in Sources */,
 				8017C83929BB24EE0020D279 /* LoginTypes.swift in Sources */,
@@ -1287,6 +1353,7 @@
 				80818B5929BB4F090003BC6F /* CloseBarItem.swift in Sources */,
 				80818B9729BB78050003BC6F /* IBDesignableView.swift in Sources */,
 				80818C1429BB80D30003BC6F /* BasePaginationViewType.swift in Sources */,
+				803EB0C229C05C3A00549E3D /* ETAPIResponseMessageCode+Constant.swift in Sources */,
 				80818BE329BB7C620003BC6F /* BoolExtension.swift in Sources */,
 				800E5C1229BB97440099AB01 /* LandingViewController.swift in Sources */,
 				80818BCC29BB7C3F0003BC6F /* String+TextFieldChecking.swift in Sources */,
@@ -1306,6 +1373,7 @@
 				80818BCB29BB7C3F0003BC6F /* String+StringToDictionary.swift in Sources */,
 				80818AFA29BB40300003BC6F /* UIViewController+Disposable.swift in Sources */,
 				80818C2929BB888B0003BC6F /* ListEmptyView.swift in Sources */,
+				803EB0CA29C06ADB00549E3D /* UserSignUp.swift in Sources */,
 				80818AEB29BB3DC00003BC6F /* ViewModelType.swift in Sources */,
 				80818BA129BB79440003BC6F /* UIViewController+SwizzleViewControllerCycleImpl.swift in Sources */,
 				80818BF229BB7E5F0003BC6F /* UITableView+LoadMoreActivityIndicator.swift in Sources */,

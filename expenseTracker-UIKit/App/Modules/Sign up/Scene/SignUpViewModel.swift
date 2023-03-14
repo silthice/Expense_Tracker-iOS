@@ -22,6 +22,8 @@ final class SignUpViewModel: BaseViewModel {
     public weak var view: SignUpViewType? = nil
     
     //MARK: - Dependencies
+//    @Injected fileprivate var userService : UserServiceType
+    let apiService = APIService()
     
     //MARK: - Constants
     //MARK: - Vars
@@ -52,6 +54,23 @@ final class SignUpViewModel: BaseViewModel {
         let toggleConfirmShowHide = self.showHideConfirmPasswordButtonDidTap
             .do(onNext: { self.view?.toggleConfirmShowHidePassword()})
                 
+//        let signup = self.signUpButtonDidTap
+//            .filter { _ in
+//                let usernameValid = self.isValidUsername(username: self.usernameRelay.value ?? "")
+//                let emailValid = self.isValidEmail(email: self.emailRelay.value ?? "")
+//                let passwordValid = self.isValidPassword(textFieldType: .password, password: self.passwordRelay.value ?? "")
+//                let password2Valid = self.isValidPassword(textFieldType: .password2, password: self.confirmPasswordRelay.value ?? "")
+//                let passwordMatch = self.isMatchPasswords(password1: self.passwordRelay.value ?? "", password2: self.confirmPasswordRelay.value ?? "")
+//                return (usernameValid && emailValid && passwordValid && password2Valid && passwordMatch)
+//            }
+//            .flatMapLatest{ _ in
+//                self.registerMember(username: self.usernameRelay.value ?? "", email: self.emailRelay.value ?? "", password: self.passwordRelay.value ?? "")
+//            }
+//            .do(onNext: { response in
+//                print("giap check", response)
+//                self.view?.signUp()
+//            })
+                
         let signup = self.signUpButtonDidTap
             .filter { _ in
                 let usernameValid = self.isValidUsername(username: self.usernameRelay.value ?? "")
@@ -61,8 +80,8 @@ final class SignUpViewModel: BaseViewModel {
                 let passwordMatch = self.isMatchPasswords(password1: self.passwordRelay.value ?? "", password2: self.confirmPasswordRelay.value ?? "")
                 return (usernameValid && emailValid && passwordValid && password2Valid && passwordMatch)
             }
-            .do(onNext: { _ in
-                self.view?.signUp()
+            .do(onNext: {
+                self.registerMember(username: self.usernameRelay.value ?? "", email: self.emailRelay.value ?? "", password: self.passwordRelay.value ?? "")
             })
                 
         let routeToLogin = self.loginButtonDidTap
@@ -84,7 +103,7 @@ extension SignUpViewModel {
             return true
         }
         else {
-            self.view?.updateHintContainer(textFieldType: .username, message: "Username should be 6-18 alphanumeric characters​")
+            self.view?.updateHintContainer(textFieldType: .username, message: "Username should be 4-18 alphanumeric characters​")
             return false
         }
     }
@@ -129,3 +148,36 @@ extension SignUpViewModel {
     
 }
 
+//MARK: - API
+extension SignUpViewModel {
+    
+    
+    private func registerMember(username: String, email: String, password: String) {
+        self.registerMember(username: username, email: email, password: password) { response in
+            switch response {
+            case .success(let value):
+                print("giap check success", value)
+            case .failure(let error):
+                print("giap check error", error)
+            }
+        }
+    }
+    
+    private func registerMember(username: String, email: String, password: String, completionHandler: @escaping(Result<RegisterMemberResponse, Error>) -> Void) {
+        let request = RegisterMemberRequest(username: username, email: email, password: password)
+        
+        apiService.registerMember(username: username, email: email, password: password) { response in
+            switch response {
+            case .success(let value):
+                DispatchQueue.main.async {
+                    completionHandler(.success(value))
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    completionHandler(.failure(error))
+                }
+            }
+        }
+    }
+    
+}

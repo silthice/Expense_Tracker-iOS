@@ -15,6 +15,11 @@ extension DI {
 //            DI.container.register(CommonServiceType.self) { r -> CommonServiceType in
 //                return CommonService()
 //            }.inObjectScope(.container)
+            
+            //MARK: Member - Call User API
+//            DI.container.register(UserServiceType.self) { r -> UserServiceType in
+//                return UserService()
+//            }.inObjectScope(.container)
         }
     }
 }

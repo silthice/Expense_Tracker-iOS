@@ -11,6 +11,9 @@ extension DI {
     struct Constant : DIRegistor {
         static func register() {
             //MARK: BuildConfig
+            DI.container.register(BuildConfigType.self) { r in
+                return BaseBuildConfig()
+            }.inObjectScope(.container)
         }
     }
 }

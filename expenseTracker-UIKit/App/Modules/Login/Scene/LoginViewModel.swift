@@ -22,6 +22,7 @@ final class LoginViewModel: BaseViewModel {
     public weak var view: LoginViewType? = nil
     
     //MARK: - Dependencies
+    let apiService = APIService()
     
     //MARK: - Constants
     //MARK: - Vars
@@ -43,13 +44,14 @@ final class LoginViewModel: BaseViewModel {
         super.transform()
         
         let login = self.loginButtonDidTap
-            .filter { _ in
-                let usernameValid = self.isValidUsername(username: self.usernameRelay.value ?? "")
-                let passwordValid = self.isValidPassword(password: self.passwordRelay.value ?? "")
-                return (usernameValid && passwordValid)
-            }
+//            .filter { _ in
+//                let usernameValid = self.isValidUsername(username: self.usernameRelay.value ?? "")
+//                let passwordValid = self.isValidPassword(password: self.passwordRelay.value ?? "")
+//                return (usernameValid && passwordValid)
+//            }
             .do(onNext: { _ in
-                self.view?.login()
+//                self.view?.login()
+                self.login(username: "giap", password: "giap1555")
             })
                 
         let routeToSignup = self.signUpButtonDidTap
@@ -74,7 +76,7 @@ extension LoginViewModel {
             return true
         }
         else {
-            self.view?.updateHintContainer(textFieldType: .username, message: "Username should be 6-18 alphanumeric characters​")
+            self.view?.updateHintContainer(textFieldType: .username, message: "Username should be 4-18 alphanumeric characters​")
             return false
         }
     }
@@ -91,3 +93,35 @@ extension LoginViewModel {
     }
 }
 
+//MARK: - API
+extension LoginViewModel {
+    
+    private func login(username: String, password: String) {
+        self.login(username: username, password: password) { response in
+            switch response {
+            case .success(let value):
+                print("giap check success", value)
+            case .failure(let error):
+                print("giap check error", error)
+            }
+        }
+    }
+    
+    private func login(username: String, password: String, completionHandler: @escaping(Result<LoginResponse, Error>) -> Void) {
+        let request = LoginRequest(username: username, password: password)
+        
+        apiService.login(username: username, password: password) { response in
+            switch response {
+            case .success(let value):
+                DispatchQueue.main.async {
+                    completionHandler(.success(value))
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    completionHandler(.failure(error))
+                }
+            }
+        }
+    }
+    
+}

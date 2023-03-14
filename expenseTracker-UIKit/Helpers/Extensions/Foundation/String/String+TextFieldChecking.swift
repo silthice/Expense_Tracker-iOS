@@ -21,7 +21,7 @@ extension String {
     }
     
     public var isValidUsername: Bool {
-        let regixStr : String =  "^[A-Za-z0-9]{6,18}$"
+        let regixStr : String =  "^[A-Za-z0-9]{4,18}$"
         let predicate :NSPredicate = NSPredicate(format:"SELF MATCHES %@",regixStr)
         return predicate.evaluate(with: self)
     }
