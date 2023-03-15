@@ -26,8 +26,3 @@ class BaseResponse : Codable {
         errMsg = try? values.decode(.errMsg)
     }
 }
-
-//protocol BaseResponse: Codable {
-//    var status: Bool? {get}
-//    var errMsg: String? {get}
-//}

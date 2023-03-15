@@ -11,11 +11,12 @@ import RxCocoa
 
 
 protocol LoginViewType: BaseViewType {
-    func login()
     func routeToSignup()
     func toggleShowHidePassword()
     func updateHintContainer(textFieldType: ExpenseTracker.Enum.EnumTextFieldPurposeType, message: String)
-    
+    func showLoader()
+    func dismissLoader()
+    func showAlert(title: String?, isError: Bool, message: String)
 }
 
 typealias LoginViewControllerType = UIViewController & LoginViewType

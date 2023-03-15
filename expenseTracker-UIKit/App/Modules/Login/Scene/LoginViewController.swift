@@ -28,7 +28,8 @@ class LoginViewController: BaseViewController<LoginViewModel> {
     @IBOutlet weak var signUpButton: UIButton!
     //MARK: - Constants
     //MARK: - Vars
-//    var spinner: UIActivityIndicatorView!
+    //    var spinner: UIActivityIndicatorView!
+    private var activityIndicatorView = UIActivityIndicatorView()
     let allowedCharacterSet = CharacterSet.alphanumerics
     
     //MARK: - Lifecycles
@@ -42,7 +43,7 @@ class LoginViewController: BaseViewController<LoginViewModel> {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-//        navigationController?.setNavigationBarHidden(false, animated: animated)
+        //        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     override func setupView() {
@@ -149,25 +150,41 @@ extension LoginViewController {
 
 //MARK: - <LoginViewType>
 extension LoginViewController: LoginViewType {
-    func login() {
-        print("giap check login")
-//        self.showLoader(view: self.view)
+    
+    func showLoader() {
+        self.activityIndicatorView = self.showLoader(view: self.view, isIgnoreInteraction: false)
+    }
+    
+    func dismissLoader() {
+        self.activityIndicatorView.dismissLoader()
+    }
+    
+    func showAlert(title: String? = "Error", isError: Bool = false, message: String) {
+        var dialogMsg = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let spinner = self.showLoader(view: self.view, isIgnoreInteraction: false)
         
+        if isError == true {
+            let tryAgain = UIAlertAction(title: "Try Again", style: .default, handler: { (action) -> Void in
+                
+            })
+            dialogMsg.addAction(tryAgain)
+        } else {
+            let ok = UIAlertAction(title: "Ok", style: .default, handler: { (_) in
+                self.routeToDashboard()
+            })
+            
+            dialogMsg.addAction(ok)
+        }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-//            self.dismissLoader()
-            spinner.dismissLoader()
-        })
+        self.present(dialogMsg, animated: true, completion: nil)
+    }
+    
+    func routeToDashboard() {
+        print("giap check routeToDashboard")
     }
     
     func routeToSignup() {
         print("giap check route to Signup")
-        
-//        let screen = DI.container.resolve(SignUpViewControllerType.self)!
-//        self.navigationController?.pushViewController(screen)
-        
         let screen = DI.container.resolve(SignUpViewControllerType.self)!
         let snapshot = (UIApplication.shared.keyWindow?.snapshotView(afterScreenUpdates: true))!
         let vc = UINavigationController(rootViewController: screen)
@@ -176,11 +193,11 @@ extension LoginViewController: LoginViewType {
                           duration: 0.4,
                           options: .transitionCrossDissolve,
                           animations: {
-                              snapshot.layer.opacity = 0
-                          },
+            snapshot.layer.opacity = 0
+        },
                           completion: { status in
-                              snapshot.removeFromSuperview()
-                          })
+            snapshot.removeFromSuperview()
+        })
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
     
@@ -216,28 +233,28 @@ extension LoginViewController: UITextFieldDelegate {
         } else {
             maxLength = 18
         }
-//        if textField == passwordTextField {
-            
-            let currentText = textField.text ?? ""
-
-            // attempt to read the range they are trying to change, or exit if we can't
-            guard let stringRange = Range(range, in: currentText) else { return false }
-            
-            // add their new text to the existing text
-            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-            
-            // make sure the result is under maxLength
-            let newText = (currentText as NSString).replacingCharacters(in: range, with: string)
-            if newText.count > maxLength {
-                return false
-            }
-            
-            // Only allow alphanumeric characters
-            let range = newText.rangeOfCharacter(from: allowedCharacterSet.inverted)
-            if range != nil {
-                return false
-            }
-//        }
+        //        if textField == passwordTextField {
+        
+        let currentText = textField.text ?? ""
+        
+        // attempt to read the range they are trying to change, or exit if we can't
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        
+        // add their new text to the existing text
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        
+        // make sure the result is under maxLength
+        let newText = (currentText as NSString).replacingCharacters(in: range, with: string)
+        if newText.count > maxLength {
+            return false
+        }
+        
+        // Only allow alphanumeric characters
+        let range = newText.rangeOfCharacter(from: allowedCharacterSet.inverted)
+        if range != nil {
+            return false
+        }
+        //        }
         return true
     }
 }

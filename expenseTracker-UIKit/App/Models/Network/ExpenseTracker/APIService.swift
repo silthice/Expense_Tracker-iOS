@@ -85,17 +85,14 @@ class APIService: NSObject {
         let encoding = JSONEncoding.default
         
         
-        print("giap check apiservice request", url)
-        print("giap check apiservice request", method)
-        print("giap check apiservice request", parameters)
-        print("giap check apiservice request", headers)
-
+//        print("giap check apiservice request", url, method)
+//        print("giap check apiservice request", parameters)
+//        print("giap check apiservice request", headers)
+        
         AF.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
-            .validate()
+            .validate(statusCode: 200...500)
             .response { dataResponse in
-                
-                print("giap check apiservice response", dataResponse)
-                print("giap check apiservice response", dataResponse.result)
+//                print("giap check api service data response", dataResponse.response?.statusCode)
                 switch dataResponse.result {
                 case .success(let data):
                     guard let data = data else {
@@ -121,29 +118,9 @@ class APIService: NSObject {
                         print("[\(path): \(headerDebugString)\nHttp response body[\(data.count) bytes] :\n\(body)\n")
                     }
                     
-                    if let errorResponse: BaseResponse = try? JSONDecoder().decode(BaseResponse.self, from: data) {
-//                        if let _ = ResponseMessageCode.tokenErrors.firstIndex(where: {
-//                            $0.code == errorResponse.code
-//                        }) {
-//                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "logout"), object: nil)
-//                        }
-//                        if let index = ResponseMessageCode.responseErrors.firstIndex(where: {
-//                            $0.code == errorResponse.code
-//                        }) {
-//                            SwifterSwift.mostTopViewController?.view.showToastOnTopStyle(ResponseMessageCode.responseErrors[index].message)
-//                        }
-                        if (!errorResponse.status) {
-                            if let error = dataResponse.error {
-                                completionHandler(.failure(error))
-                            }
-                        }
-                        DispatchQueue.main.async {
-                            completionHandler(.success(data))
-                        }
-                    } else {
-                        DispatchQueue.main.async {
-                            completionHandler(.success(data))
-                        }
+                    //handle all response since validate statusCode 200...500
+                    DispatchQueue.main.async {
+                        completionHandler(.success(data))
                     }
                     
                 case .failure(let error):
@@ -159,23 +136,6 @@ class APIService: NSObject {
                     }
                 }
             }
-    }
-    
-    class func loadJson(fromURLString urlString: String,
-                        completion: @escaping (Result<Data, Error>) -> Void) {
-        if let url = URL(string: urlString) {
-            let urlSession = URLSession(configuration: .default).dataTask(with: url) { (data, response, error) in
-                if let error = error {
-                    completion(.failure(error))
-                }
-                
-                if let data = data {
-                    completion(.success(data))
-                }
-            }
-            
-            urlSession.resume()
-        }
     }
 }
 

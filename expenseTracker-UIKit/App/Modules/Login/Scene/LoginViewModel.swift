@@ -44,14 +44,15 @@ final class LoginViewModel: BaseViewModel {
         super.transform()
         
         let login = self.loginButtonDidTap
-//            .filter { _ in
-//                let usernameValid = self.isValidUsername(username: self.usernameRelay.value ?? "")
-//                let passwordValid = self.isValidPassword(password: self.passwordRelay.value ?? "")
-//                return (usernameValid && passwordValid)
-//            }
+            .filter { _ in
+                let usernameValid = self.isValidUsername(username: self.usernameRelay.value ?? "")
+                let passwordValid = self.isValidPassword(password: self.passwordRelay.value ?? "")
+                return (usernameValid && passwordValid)
+            }
             .do(onNext: { _ in
-//                self.view?.login()
-                self.login(username: "giap", password: "giap1555")
+//                self.login(username: "giap", password: "giap1234")
+                guard let username = self.usernameRelay.value, let password = self.passwordRelay.value else {return}
+                self.login(username: username, password: password)
             })
                 
         let routeToSignup = self.signUpButtonDidTap
@@ -91,35 +92,35 @@ extension LoginViewModel {
             return false
         }
     }
+    
+    func handleResponse(res: LoginResponse ) {
+        if let errMsg = res.errMsg {
+            self.view?.showAlert(title: "Login Failed", isError: true, message: errMsg)
+            return
+        }
+        
+        if let user = res.user, let token = res.token {
+            UserSettingCenter.userId = user.username ?? ""
+            UserSettingCenter.token = token
+            self.view?.showAlert(title: "Login Success", isError: false, message: "")
+        }
+    }
 }
 
 //MARK: - API
 extension LoginViewModel {
     
     private func login(username: String, password: String) {
-        self.login(username: username, password: password) { response in
-            switch response {
-            case .success(let value):
-                print("giap check success", value)
-            case .failure(let error):
-                print("giap check error", error)
-            }
-        }
-    }
-    
-    private func login(username: String, password: String, completionHandler: @escaping(Result<LoginResponse, Error>) -> Void) {
+        self.view?.showLoader()
         let request = LoginRequest(username: username, password: password)
         
-        apiService.login(username: username, password: password) { response in
+        apiService.login(loginRequest: request) { response in
             switch response {
             case .success(let value):
-                DispatchQueue.main.async {
-                    completionHandler(.success(value))
-                }
+                self.handleResponse(res: value)
+                self.view?.dismissLoader()
             case .failure(let error):
-                DispatchQueue.main.async {
-                    completionHandler(.failure(error))
-                }
+                self.view?.dismissLoader()
             }
         }
     }

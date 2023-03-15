@@ -37,6 +37,10 @@
 		803EB0CA29C06ADB00549E3D /* UserSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0C929C06ADB00549E3D /* UserSignUp.swift */; };
 		803EB0CC29C06E8400549E3D /* BuildConfig+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0CB29C06E8400549E3D /* BuildConfig+Base.swift */; };
 		803EB0CE29C0C17A00549E3D /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0CD29C0C17A00549E3D /* Login.swift */; };
+		803EB0D929C1780000549E3D /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0D829C1780000549E3D /* LoginRequest.swift */; };
+		803EB0DB29C1781C00549E3D /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0DA29C1781C00549E3D /* LoginResponse.swift */; };
+		803EB0E029C17A3100549E3D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0DF29C17A3100549E3D /* User.swift */; };
+		803EB0E329C19AE500549E3D /* UserSettingCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0E229C19AE500549E3D /* UserSettingCenter.swift */; };
 		80818ADB29BB3BD90003BC6F /* BaseViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818ADA29BB3BD90003BC6F /* BaseViewType.swift */; };
 		80818ADD29BB3C320003BC6F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818ADC29BB3C320003BC6F /* BaseViewController.swift */; };
 		80818AE229BB3D100003BC6F /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818AE129BB3D100003BC6F /* ViewType.swift */; };
@@ -189,6 +193,10 @@
 		803EB0C929C06ADB00549E3D /* UserSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUp.swift; sourceTree = "<group>"; };
 		803EB0CB29C06E8400549E3D /* BuildConfig+Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BuildConfig+Base.swift"; sourceTree = "<group>"; };
 		803EB0CD29C0C17A00549E3D /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		803EB0D829C1780000549E3D /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		803EB0DA29C1781C00549E3D /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		803EB0DF29C17A3100549E3D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		803EB0E229C19AE500549E3D /* UserSettingCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingCenter.swift; sourceTree = "<group>"; };
 		80818ADA29BB3BD90003BC6F /* BaseViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewType.swift; sourceTree = "<group>"; };
 		80818ADC29BB3C320003BC6F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		80818AE129BB3D100003BC6F /* ViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
@@ -542,6 +550,7 @@
 		80192CA429BAC84B00A3D17D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				803EB0E129C19ADA00549E3D /* Persistency */,
 				80818B7B29BB706B0003BC6F /* Network */,
 				80818B4129BB4C540003BC6F /* Date */,
 			);
@@ -581,10 +590,37 @@
 		803EB0B629C0570300549E3D /* User */ = {
 			isa = PBXGroup;
 			children = (
-				803EB0C929C06ADB00549E3D /* UserSignUp.swift */,
-				803EB0CD29C0C17A00549E3D /* Login.swift */,
+				803EB0DF29C17A3100549E3D /* User.swift */,
+				803EB0DC29C1784200549E3D /* SignUp */,
+				803EB0D729C177F200549E3D /* Login */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		803EB0D729C177F200549E3D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				803EB0CD29C0C17A00549E3D /* Login.swift */,
+				803EB0D829C1780000549E3D /* LoginRequest.swift */,
+				803EB0DA29C1781C00549E3D /* LoginResponse.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		803EB0DC29C1784200549E3D /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				803EB0C929C06ADB00549E3D /* UserSignUp.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		803EB0E129C19ADA00549E3D /* Persistency */ = {
+			isa = PBXGroup;
+			children = (
+				803EB0E229C19AE500549E3D /* UserSettingCenter.swift */,
+			);
+			path = Persistency;
 			sourceTree = "<group>";
 		};
 		80818AD929BB3BCD0003BC6F /* MVVM */ = {
@@ -1246,6 +1282,7 @@
 				80818C1D29BB80DF0003BC6F /* LoadMoreItemsViewControllerTypeExtensions.swift in Sources */,
 				80818C0629BB7E6B0003BC6F /* UIViewController+Loader.swift in Sources */,
 				80818BCD29BB7C3F0003BC6F /* String+HtmlToString.swift in Sources */,
+				803EB0D929C1780000549E3D /* LoginRequest.swift in Sources */,
 				80818BAC29BB7AB50003BC6F /* EncodableExtensions.swift in Sources */,
 				80818BD129BB7C440003BC6F /* Error+Helper.swift in Sources */,
 				80818B5729BB4EA80003BC6F /* UIViewController+RxBarItemsViewType.swift in Sources */,
@@ -1272,6 +1309,7 @@
 				803EB0C629C05EF300549E3D /* ETAPIBaseRequest.swift in Sources */,
 				80818B1C29BB44AF0003BC6F /* Observable+Ext.swift in Sources */,
 				80818AFD29BB408A0003BC6F /* App+Logger.swift in Sources */,
+				803EB0DB29C1781C00549E3D /* LoginResponse.swift in Sources */,
 				80818B4029BB4BB80003BC6F /* BaseViewModel.swift in Sources */,
 				80818C0529BB7E6B0003BC6F /* UIControl+SetSelectedOnTouchUpInside.swift in Sources */,
 				80818C1B29BB80DF0003BC6F /* ReloadItemsViewControllerTypeExtensions.swift in Sources */,
@@ -1328,6 +1366,7 @@
 				8017C82529BB21D90020D279 /* DI+Service.swift in Sources */,
 				80818BE829BB7E3B0003BC6F /* UINavigationController+Extension.swift in Sources */,
 				80818B5B29BB4F110003BC6F /* BackBarItem.swift in Sources */,
+				803EB0E029C17A3100549E3D /* User.swift in Sources */,
 				80CAB1D529BF187D002A98B8 /* SignUpViewModel.swift in Sources */,
 				803EB0AE29C015F400549E3D /* ExpenseTrackerEnum.swift in Sources */,
 				80818BE529BB7C680003BC6F /* Date+Calculation.swift in Sources */,
@@ -1348,6 +1387,7 @@
 				80818B0129BB41650003BC6F /* DisposeOnWillRemoveFromParentType.swift in Sources */,
 				80818BF129BB7E5F0003BC6F /* UIScrollViewExtensions.swift in Sources */,
 				80818B5529BB4E9F0003BC6F /* UIViewController+BarItemsViewType.swift in Sources */,
+				803EB0E329C19AE500549E3D /* UserSettingCenter.swift in Sources */,
 				80818ADD29BB3C320003BC6F /* BaseViewController.swift in Sources */,
 				80818BBD29BB7C300003BC6F /* Double+ToString.swift in Sources */,
 				80818B5929BB4F090003BC6F /* CloseBarItem.swift in Sources */,

@@ -27,7 +27,6 @@ extension APIService {
         
         APIService.publicRequest(url: url, method: .post, parameters: parameters, headers: HTTPHeaders.jsonHeader()) { (response) in
             
-            print("giap check response 1", response)
             switch response {
             case .success(let data):
                 if let response: RegisterMemberResponse = try? JSONDecoder().decode(RegisterMemberResponse.self, from: data) {
