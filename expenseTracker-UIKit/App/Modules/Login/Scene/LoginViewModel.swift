@@ -93,7 +93,7 @@ extension LoginViewModel {
         }
     }
     
-    func handleResponse(res: LoginResponse ) {
+    func handleResponse(res: LoginResponse) {
         if let errMsg = res.errMsg {
             self.view?.showAlert(title: "Login Failed", isError: true, message: errMsg)
             return

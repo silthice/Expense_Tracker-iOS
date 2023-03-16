@@ -68,7 +68,6 @@ final class SignUpViewModel: BaseViewModel {
 //            }
 //            .do(onNext: { response in
 //                print("giap check", response)
-//                self.view?.signUp()
 //            })
                 
         let signup = self.signUpButtonDidTap
@@ -81,7 +80,18 @@ final class SignUpViewModel: BaseViewModel {
                 return (usernameValid && emailValid && passwordValid && password2Valid && passwordMatch)
             }
             .do(onNext: {
-                self.registerMember(username: self.usernameRelay.value ?? "", email: self.emailRelay.value ?? "", password: self.passwordRelay.value ?? "")
+                
+//                self.register(username: "giap3", email: "giap@mail.com", password: "giap1234")
+                
+                guard
+                    let username = self.usernameRelay.value,
+                    let email = self.emailRelay.value,
+                    let password = self.passwordRelay.value
+                else {
+                    return
+                }
+
+                self.register(username: username, email: email, password: password)
             })
                 
         let routeToLogin = self.loginButtonDidTap
@@ -148,34 +158,33 @@ extension SignUpViewModel {
     
 }
 
+extension SignUpViewModel {
+    func handleResponse(res: SignUpResponse) {
+        if let errMsg = res.errMsg {
+            self.view?.showAlert(title: "Sign Up Failed", isError: true, message: errMsg)
+            return
+        }
+        
+        if res.status {
+            self.view?.showAlert(title: "Sign Up Success", isError: false, message: "")
+        }
+    }
+}
+
 //MARK: - API
 extension SignUpViewModel {
     
-    
-    private func registerMember(username: String, email: String, password: String) {
-        self.registerMember(username: username, email: email, password: password) { response in
-            switch response {
-            case .success(let value):
-                print("giap check success", value)
-            case .failure(let error):
-                print("giap check error", error)
-            }
-        }
-    }
-    
-    private func registerMember(username: String, email: String, password: String, completionHandler: @escaping(Result<RegisterMemberResponse, Error>) -> Void) {
-        let request = RegisterMemberRequest(username: username, email: email, password: password)
+    private func register(username: String, email: String, password: String) {
+        self.view?.showLoader()
+        let request = SignUpRequest(username: username, email: email, password: password)
         
-        apiService.registerMember(username: username, email: email, password: password) { response in
+        apiService.signUp(signUpRequest: request) { response in
             switch response {
             case .success(let value):
-                DispatchQueue.main.async {
-                    completionHandler(.success(value))
-                }
+                self.handleResponse(res: value)
+                self.view?.dismissLoader()
             case .failure(let error):
-                DispatchQueue.main.async {
-                    completionHandler(.failure(error))
-                }
+                self.view?.dismissLoader()
             }
         }
     }

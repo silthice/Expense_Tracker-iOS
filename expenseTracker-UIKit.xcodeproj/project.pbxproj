@@ -34,13 +34,15 @@
 		803EB0C229C05C3A00549E3D /* ETAPIResponseMessageCode+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0C129C05C3A00549E3D /* ETAPIResponseMessageCode+Constant.swift */; };
 		803EB0C429C05D8200549E3D /* ETAPIBaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0C329C05D8200549E3D /* ETAPIBaseResponse.swift */; };
 		803EB0C629C05EF300549E3D /* ETAPIBaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0C529C05EF300549E3D /* ETAPIBaseRequest.swift */; };
-		803EB0CA29C06ADB00549E3D /* UserSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0C929C06ADB00549E3D /* UserSignUp.swift */; };
 		803EB0CC29C06E8400549E3D /* BuildConfig+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0CB29C06E8400549E3D /* BuildConfig+Base.swift */; };
 		803EB0CE29C0C17A00549E3D /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0CD29C0C17A00549E3D /* Login.swift */; };
 		803EB0D929C1780000549E3D /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0D829C1780000549E3D /* LoginRequest.swift */; };
 		803EB0DB29C1781C00549E3D /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0DA29C1781C00549E3D /* LoginResponse.swift */; };
 		803EB0E029C17A3100549E3D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0DF29C17A3100549E3D /* User.swift */; };
 		803EB0E329C19AE500549E3D /* UserSettingCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0E229C19AE500549E3D /* UserSettingCenter.swift */; };
+		803EB0E529C2283600549E3D /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0E429C2283600549E3D /* SignUp.swift */; };
+		803EB0E729C2285900549E3D /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0E629C2285900549E3D /* SignUpRequest.swift */; };
+		803EB0E929C2287300549E3D /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803EB0E829C2287300549E3D /* SignUpResponse.swift */; };
 		80818ADB29BB3BD90003BC6F /* BaseViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818ADA29BB3BD90003BC6F /* BaseViewType.swift */; };
 		80818ADD29BB3C320003BC6F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818ADC29BB3C320003BC6F /* BaseViewController.swift */; };
 		80818AE229BB3D100003BC6F /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818AE129BB3D100003BC6F /* ViewType.swift */; };
@@ -190,13 +192,15 @@
 		803EB0C129C05C3A00549E3D /* ETAPIResponseMessageCode+Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ETAPIResponseMessageCode+Constant.swift"; sourceTree = "<group>"; };
 		803EB0C329C05D8200549E3D /* ETAPIBaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETAPIBaseResponse.swift; sourceTree = "<group>"; };
 		803EB0C529C05EF300549E3D /* ETAPIBaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETAPIBaseRequest.swift; sourceTree = "<group>"; };
-		803EB0C929C06ADB00549E3D /* UserSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUp.swift; sourceTree = "<group>"; };
 		803EB0CB29C06E8400549E3D /* BuildConfig+Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BuildConfig+Base.swift"; sourceTree = "<group>"; };
 		803EB0CD29C0C17A00549E3D /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		803EB0D829C1780000549E3D /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		803EB0DA29C1781C00549E3D /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		803EB0DF29C17A3100549E3D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		803EB0E229C19AE500549E3D /* UserSettingCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingCenter.swift; sourceTree = "<group>"; };
+		803EB0E429C2283600549E3D /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		803EB0E629C2285900549E3D /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
+		803EB0E829C2287300549E3D /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
 		80818ADA29BB3BD90003BC6F /* BaseViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewType.swift; sourceTree = "<group>"; };
 		80818ADC29BB3C320003BC6F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		80818AE129BB3D100003BC6F /* ViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
@@ -610,7 +614,9 @@
 		803EB0DC29C1784200549E3D /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				803EB0C929C06ADB00549E3D /* UserSignUp.swift */,
+				803EB0E429C2283600549E3D /* SignUp.swift */,
+				803EB0E629C2285900549E3D /* SignUpRequest.swift */,
+				803EB0E829C2287300549E3D /* SignUpResponse.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -1360,6 +1366,7 @@
 				80818B9329BB77860003BC6F /* UIView+Visibility.swift in Sources */,
 				80818BDF29BB7C590003BC6F /* NSError+Helper.swift in Sources */,
 				8017C83929BB24EE0020D279 /* LoginTypes.swift in Sources */,
+				803EB0E729C2285900549E3D /* SignUpRequest.swift in Sources */,
 				80818B4B29BB4D2B0003BC6F /* DateTimeFormats.swift in Sources */,
 				80818C2229BB87BA0003BC6F /* ViewEvent.swift in Sources */,
 				80818B3D29BB4A720003BC6F /* StopEventTracker.swift in Sources */,
@@ -1374,9 +1381,11 @@
 				80818B0329BB416E0003BC6F /* DisposeOnWillRemoveFromParentType+Extension.swift in Sources */,
 				80818BC929BB7C3F0003BC6F /* String+IsNilOrEmpty.swift in Sources */,
 				80818BD929BB7C540003BC6F /* NSObject+ExtraProperty.swift in Sources */,
+				803EB0E929C2287300549E3D /* SignUpResponse.swift in Sources */,
 				80CAB1C929BEFF61002A98B8 /* CustomFonts.swift in Sources */,
 				80818BBC29BB7C300003BC6F /* Double+SBKFractionPoint.swift in Sources */,
 				80818BF329BB7E5F0003BC6F /* UITableView+Extension.swift in Sources */,
+				803EB0E529C2283600549E3D /* SignUp.swift in Sources */,
 				80818ADB29BB3BD90003BC6F /* BaseViewType.swift in Sources */,
 				80818BA229BB79440003BC6F /* ViewControllerCycleImplType.swift in Sources */,
 				80818BE029BB7C590003BC6F /* NSErrorUserInfoKey.swift in Sources */,
@@ -1413,7 +1422,6 @@
 				80818BCB29BB7C3F0003BC6F /* String+StringToDictionary.swift in Sources */,
 				80818AFA29BB40300003BC6F /* UIViewController+Disposable.swift in Sources */,
 				80818C2929BB888B0003BC6F /* ListEmptyView.swift in Sources */,
-				803EB0CA29C06ADB00549E3D /* UserSignUp.swift in Sources */,
 				80818AEB29BB3DC00003BC6F /* ViewModelType.swift in Sources */,
 				80818BA129BB79440003BC6F /* UIViewController+SwizzleViewControllerCycleImpl.swift in Sources */,
 				80818BF229BB7E5F0003BC6F /* UITableView+LoadMoreActivityIndicator.swift in Sources */,

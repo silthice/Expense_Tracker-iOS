@@ -14,8 +14,9 @@ protocol SignUpViewType: BaseViewType {
     func toggleConfirmShowHidePassword()
     func updateHintContainer(textFieldType: ExpenseTracker.Enum.EnumTextFieldPurposeType, message: String)
     func routeToLogin()
-    func signUp()
-    
+    func showLoader()
+    func dismissLoader()
+    func showAlert(title: String?, isError: Bool, message: String)
 }
 
 typealias SignUpViewControllerType = UIViewController & SignUpViewType

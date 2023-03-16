@@ -38,6 +38,7 @@ class SignUpViewController: BaseViewController<SignUpViewModel> {
     //MARK: - Constants
     //MARK: - Vars
     let allowedCharacterSet = CharacterSet.alphanumerics
+    private var activityIndicatorView = UIActivityIndicatorView()
     
     //MARK: - Lifecycles
     override func loadView() {
@@ -195,15 +196,11 @@ extension SignUpViewController {
 
 //MARK: - <SignUpViewType>
 extension SignUpViewController: SignUpViewType {
-    func signUp() {
-        print("giap check signup")
-    }
     
     func routeToLogin() {
         print("giap check route to Login")
         
         let screen = DI.container.resolve(LoginViewControllerType.self)!
-//        self.navigationController?.pushViewController(screen)
         let snapshot = (UIApplication.shared.keyWindow?.snapshotView(afterScreenUpdates: true))!
         let vc = UINavigationController(rootViewController: screen)
         UIApplication.shared.windows.first?.rootViewController = vc
@@ -253,6 +250,35 @@ extension SignUpViewController: SignUpViewType {
             showConfirmHidePasswordButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         }
     }
+    
+    func showLoader() {
+        self.activityIndicatorView = self.showLoader(view: self.view, isIgnoreInteraction: false)
+    }
+    
+    func dismissLoader() {
+        self.activityIndicatorView.dismissLoader()
+    }
+    
+    func showAlert(title: String? = "Error", isError: Bool = false, message: String) {
+        var dialogMsg = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        
+        if isError == true {
+            let tryAgain = UIAlertAction(title: "Try Again", style: .default, handler: { (action) -> Void in
+                
+            })
+            dialogMsg.addAction(tryAgain)
+        } else {
+            let ok = UIAlertAction(title: "Login Now", style: .default, handler: { (_) in
+                self.routeToLogin()
+            })
+            
+            dialogMsg.addAction(ok)
+        }
+        
+        self.present(dialogMsg, animated: true, completion: nil)
+    }
+    
     
 }
 
