@@ -13,7 +13,6 @@ class LandingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print("giap check landing page")
         self.redirect()
     }
 
@@ -22,10 +21,10 @@ class LandingViewController: UIViewController {
 extension LandingViewController {
     private func redirect() {
         //Add Here
-        //If login redirect to main tab
+        //If logged in redirect to main tab
+        
         //Else redirect to login/sign up
         let screen = DI.resolver.resolve(LoginViewControllerType.self)!
-//        let screen = DI.resolver.resolve(SignUpViewControllerType.self)!
         let vc = UINavigationController(rootViewController: screen)
         UIApplication.shared.windows.first?.rootViewController = vc
         UIApplication.shared.windows.first?.makeKeyAndVisible()

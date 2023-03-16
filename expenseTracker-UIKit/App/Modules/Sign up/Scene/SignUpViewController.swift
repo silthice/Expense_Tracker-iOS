@@ -198,8 +198,6 @@ extension SignUpViewController {
 extension SignUpViewController: SignUpViewType {
     
     func routeToLogin() {
-        print("giap check route to Login")
-        
         let screen = DI.container.resolve(LoginViewControllerType.self)!
         let snapshot = (UIApplication.shared.keyWindow?.snapshotView(afterScreenUpdates: true))!
         let vc = UINavigationController(rootViewController: screen)
