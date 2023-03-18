@@ -17,6 +17,9 @@ extension DI.ViewPairs {
     static func register() {
         Login.register()
         SignUp.register()
+        Dashboard.register()
+        Home.register()
+        Profile.register()
     }
 }
 
