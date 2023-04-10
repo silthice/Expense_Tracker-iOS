@@ -180,7 +180,10 @@ extension LoginViewController: LoginViewType {
     }
     
     func routeToDashboard() {
-        print("giap check routeToDashboard")
+        let screen = DI.resolver.resolve(DashboardTabBarControllerType.self)!
+        let vc = UINavigationController(rootViewController: screen)
+        UIApplication.shared.windows.first?.rootViewController = vc
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
     
     func routeToSignup() {

@@ -18,9 +18,12 @@ final class HomeViewModel: BaseViewModel {
     public weak var view: HomeViewType? = nil
     
     //MARK: - Dependencies
+    let apiService = APIService()
+    @Injected private var ETKeychain: ETKeyChainType
     
     //MARK: - Constants
     //MARK: - Vars
+    var recentTransactionList: BehaviorRelay<[Transaction]> = BehaviorRelay(value: [])
     
     //MARK: - Init
     override init() {
@@ -34,16 +37,49 @@ final class HomeViewModel: BaseViewModel {
     //MARK: - Transform
     override func transform() {
         super.transform()
+        
+        let getRecentTransactions = self.startLoad
+            .do(onNext: {
+                self.getRecentTransactions(t_user_id: self.ETKeychain.getUserId() ?? "")
+            })
                 
         disposeBag.insert(
+            getRecentTransactions.drive()
         )
     }
 }
 
 extension HomeViewModel {
+    
+    func handleResponse(res: GetTransactionListResponse) {
+        if let errMsg = res.errMsg {
+//            self.view?.showAlert(title: "Sign Up Failed", isError: true, message: errMsg)
+            print("giap check res error", res)
+            return
+        }
+        
+        if res.status {
+//            self.view?.showAlert(title: "Sign Up Success", isError: false, message: "")
+            self.recentTransactionList.accept(res.transactions)
+        }
+    }
 }
 
 //MARK: - API
 extension HomeViewModel {
-    
+    private func getRecentTransactions(t_user_id: String) {
+//        self.view?.showLoader()
+        let request = GetTransactionListRequest(t_user_id: t_user_id)
+        
+        apiService.getRecentTransactions(getRecentTransactionRequest: request) { response in
+            switch response {
+            case .success(let value):
+                self.handleResponse(res: value)
+//                self.view?.dismissLoader()
+            case .failure(let error):
+                print("giap check fail", error)
+//                self.view?.dismissLoader()
+            }
+        }
+    }
 }

@@ -9,7 +9,7 @@ import UIKit
 import SwifterSwift
 
 class LandingViewController: UIViewController {
-
+    @Injected private var ETKeychain: ETKeyChainType
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -20,14 +20,16 @@ class LandingViewController: UIViewController {
 
 extension LandingViewController {
     private func redirect() {
-        //Add Here
-        //If logged in redirect to main tab
-        
-        //Else redirect to login/sign up
-//        let screen = DI.resolver.resolve(LoginViewControllerType.self)!
-        let screen = DI.resolver.resolve(DashboardTabBarControllerType.self)!
-        let vc = UINavigationController(rootViewController: screen)
-        UIApplication.shared.windows.first?.rootViewController = vc
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
+        if let _ = ETKeychain.getBearerToken() {
+            let screen = DI.resolver.resolve(DashboardTabBarControllerType.self)!
+            let vc = UINavigationController(rootViewController: screen)
+            UIApplication.shared.windows.first?.rootViewController = vc
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
+        } else {
+            let screen = DI.resolver.resolve(LoginViewControllerType.self)!
+            let vc = UINavigationController(rootViewController: screen)
+            UIApplication.shared.windows.first?.rootViewController = vc
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
+        }
     }
 }

@@ -18,23 +18,8 @@ extension HTTPHeaders {
         //            "x-Timestamp": Defaults[DefaultsKeys.UserPref.xTimestamp]
         //        ])
         let headers:HTTPHeaders = HTTPHeaders.init([
-            "Content-Type": "application/json;charset=UTF-8"
-        ])
-        return headers
-    }
-    
-    static func bbJsonHeader() -> HTTPHeaders {
-        //        let headers:HTTPHeaders = HTTPHeaders.init([
-        //            "Content-Type": "application/json;charset=UTF-8",
-        //            "x-Timestamp": Defaults[DefaultsKeys.UserPref.xTimestamp],
-        //            "Authorization": UserSettingCenter.bbToken ?? "",
-        //            "Accept-Encoding": "deflate, gzip;q=1.0, *;q=0.5",
-        //            "Transfer-Encoding": "Identity"
-        //        ])
-        let headers:HTTPHeaders = HTTPHeaders.init([
             "Content-Type": "application/json;charset=UTF-8",
-            "Accept-Encoding": "deflate, gzip;q=1.0, *;q=0.5",
-            "Transfer-Encoding": "Identity"
+            "Authorization": ETKeyChain().getBearerToken() ?? "",
         ])
         return headers
     }

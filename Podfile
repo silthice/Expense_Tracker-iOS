@@ -40,6 +40,9 @@ target 'expenseTracker-UIKit' do
    #Persistency
    pod 'SwiftyUserDefaults', '4.0.0-beta.2'
    pod 'CodableExtensions'
+   
+   # KeychainAccess
+   pod 'KeychainAccess'
 
    #ImageUtil
    pod 'Kingfisher', '~> 5.3.0'

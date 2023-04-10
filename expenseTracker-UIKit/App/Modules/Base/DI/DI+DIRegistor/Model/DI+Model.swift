@@ -34,6 +34,9 @@ extension DI {
             }.inObjectScope(.container)
             
             //MARK: Keychain
+            DI.container.register(ETKeyChainType.self) { r -> ETKeyChainType in
+                return ETKeyChain()
+            }.inObjectScope(.container)
             
             // MARK: UserRepository
 

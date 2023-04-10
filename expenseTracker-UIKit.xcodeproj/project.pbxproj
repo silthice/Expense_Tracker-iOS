@@ -58,6 +58,9 @@
 		8041B2AD29C5CB6C0043D6E4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8041B2AC29C5CB6C0043D6E4 /* HomeViewModel.swift */; };
 		8041B2AF29C5CBAA0043D6E4 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8041B2AE29C5CBAA0043D6E4 /* Home.storyboard */; };
 		8041B2B529C5CBC90043D6E4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8041B2B429C5CBC90043D6E4 /* Profile.storyboard */; };
+		8041B2B729C623D00043D6E4 /* UIView+CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8041B2B629C623D00043D6E4 /* UIView+CAGradientLayer.swift */; };
+		807710A229CB51A3004E019A /* TransactionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807710A029CB51A3004E019A /* TransactionCollectionViewCell.swift */; };
+		807710A329CB51A3004E019A /* TransactionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 807710A129CB51A3004E019A /* TransactionCollectionViewCell.xib */; };
 		80818ADB29BB3BD90003BC6F /* BaseViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818ADA29BB3BD90003BC6F /* BaseViewType.swift */; };
 		80818ADD29BB3C320003BC6F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818ADC29BB3C320003BC6F /* BaseViewController.swift */; };
 		80818AE229BB3D100003BC6F /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818AE129BB3D100003BC6F /* ViewType.swift */; };
@@ -165,6 +168,12 @@
 		80818C2429BB87BA0003BC6F /* PresentationBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818C2129BB87BA0003BC6F /* PresentationBinding.swift */; };
 		80818C2829BB888B0003BC6F /* ListEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80818C2629BB888B0003BC6F /* ListEmptyView.xib */; };
 		80818C2929BB888B0003BC6F /* ListEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818C2729BB888B0003BC6F /* ListEmptyView.swift */; };
+		80BA5D9429DFF5A000AAEB71 /* GetTransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BA5D9329DFF5A000AAEB71 /* GetTransactionList.swift */; };
+		80BA5D9629DFF5BA00AAEB71 /* GetTransactionListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BA5D9529DFF5BA00AAEB71 /* GetTransactionListRequest.swift */; };
+		80BA5D9829DFF5C500AAEB71 /* GetTransactionListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BA5D9729DFF5C500AAEB71 /* GetTransactionListResponse.swift */; };
+		80BA5D9B29E004F900AAEB71 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BA5D9A29E004F900AAEB71 /* Transaction.swift */; };
+		80BA5D9E29E01A6800AAEB71 /* ETKeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BA5D9D29E01A6800AAEB71 /* ETKeyChain.swift */; };
+		80BA5DA029E01A7000AAEB71 /* ETKeyChainType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BA5D9F29E01A7000AAEB71 /* ETKeyChainType.swift */; };
 		80CAB1C529BEF343002A98B8 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CAB1C429BEF343002A98B8 /* CustomColors.swift */; };
 		80CAB1C729BEF3C4002A98B8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CAB1C629BEF3C4002A98B8 /* Constants.swift */; };
 		80CAB1C929BEFF61002A98B8 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CAB1C829BEFF61002A98B8 /* CustomFonts.swift */; };
@@ -231,6 +240,9 @@
 		8041B2AC29C5CB6C0043D6E4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8041B2AE29C5CBAA0043D6E4 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		8041B2B429C5CBC90043D6E4 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		8041B2B629C623D00043D6E4 /* UIView+CAGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CAGradientLayer.swift"; sourceTree = "<group>"; };
+		807710A029CB51A3004E019A /* TransactionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCollectionViewCell.swift; sourceTree = "<group>"; };
+		807710A129CB51A3004E019A /* TransactionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCollectionViewCell.xib; sourceTree = "<group>"; };
 		80818ADA29BB3BD90003BC6F /* BaseViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewType.swift; sourceTree = "<group>"; };
 		80818ADC29BB3C320003BC6F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		80818AE129BB3D100003BC6F /* ViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
@@ -338,6 +350,12 @@
 		80818C2129BB87BA0003BC6F /* PresentationBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationBinding.swift; sourceTree = "<group>"; };
 		80818C2629BB888B0003BC6F /* ListEmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListEmptyView.xib; sourceTree = "<group>"; };
 		80818C2729BB888B0003BC6F /* ListEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListEmptyView.swift; sourceTree = "<group>"; };
+		80BA5D9329DFF5A000AAEB71 /* GetTransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionList.swift; sourceTree = "<group>"; };
+		80BA5D9529DFF5BA00AAEB71 /* GetTransactionListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionListRequest.swift; sourceTree = "<group>"; };
+		80BA5D9729DFF5C500AAEB71 /* GetTransactionListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionListResponse.swift; sourceTree = "<group>"; };
+		80BA5D9A29E004F900AAEB71 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		80BA5D9D29E01A6800AAEB71 /* ETKeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETKeyChain.swift; sourceTree = "<group>"; };
+		80BA5D9F29E01A7000AAEB71 /* ETKeyChainType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETKeyChainType.swift; sourceTree = "<group>"; };
 		80CAB1C429BEF343002A98B8 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		80CAB1C629BEF3C4002A98B8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		80CAB1C829BEFF61002A98B8 /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
@@ -397,6 +415,7 @@
 		8017C81429BB20920020D279 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8077109F29CB517B004E019A /* Transaction */,
 				8041B29D29C5CB070043D6E4 /* Profile */,
 				8041B29C29C5CB040043D6E4 /* Home */,
 				8041B28F29C5B70C0043D6E4 /* Dashboard */,
@@ -619,6 +638,7 @@
 		803EB0B529C056D800549E3D /* EndPoint */ = {
 			isa = PBXGroup;
 			children = (
+				80BA5D9929E004EC00AAEB71 /* Transaction */,
 				803EB0B629C0570300549E3D /* User */,
 			);
 			path = EndPoint;
@@ -630,6 +650,7 @@
 				803EB0DF29C17A3100549E3D /* User.swift */,
 				803EB0DC29C1784200549E3D /* SignUp */,
 				803EB0D729C177F200549E3D /* Login */,
+				80BA5D9029DFF55500AAEB71 /* GetTransactionList */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -657,6 +678,7 @@
 		803EB0E129C19ADA00549E3D /* Persistency */ = {
 			isa = PBXGroup;
 			children = (
+				80BA5D9C29E01A5800AAEB71 /* KeyChain */,
 				803EB0E229C19AE500549E3D /* UserSettingCenter.swift */,
 			);
 			path = Persistency;
@@ -696,6 +718,15 @@
 				8041B2A429C5CB360043D6E4 /* ProfileViewTypes.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		8077109F29CB517B004E019A /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				807710A029CB51A3004E019A /* TransactionCollectionViewCell.swift */,
+				807710A129CB51A3004E019A /* TransactionCollectionViewCell.xib */,
+			);
+			path = Transaction;
 			sourceTree = "<group>";
 		};
 		80818AD929BB3BCD0003BC6F /* MVVM */ = {
@@ -934,6 +965,7 @@
 				80818B9629BB78050003BC6F /* IBDesignableView.swift */,
 				80818B9229BB77860003BC6F /* UIView+Visibility.swift */,
 				80818B9429BB779E0003BC6F /* UIView+Opacity.swift */,
+				8041B2B629C623D00043D6E4 /* UIView+CAGradientLayer.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -1196,6 +1228,33 @@
 			path = ListEmptyView;
 			sourceTree = "<group>";
 		};
+		80BA5D9029DFF55500AAEB71 /* GetTransactionList */ = {
+			isa = PBXGroup;
+			children = (
+				80BA5D9329DFF5A000AAEB71 /* GetTransactionList.swift */,
+				80BA5D9529DFF5BA00AAEB71 /* GetTransactionListRequest.swift */,
+				80BA5D9729DFF5C500AAEB71 /* GetTransactionListResponse.swift */,
+			);
+			path = GetTransactionList;
+			sourceTree = "<group>";
+		};
+		80BA5D9929E004EC00AAEB71 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				80BA5D9A29E004F900AAEB71 /* Transaction.swift */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
+		80BA5D9C29E01A5800AAEB71 /* KeyChain */ = {
+			isa = PBXGroup;
+			children = (
+				80BA5D9D29E01A6800AAEB71 /* ETKeyChain.swift */,
+				80BA5D9F29E01A7000AAEB71 /* ETKeyChainType.swift */,
+			);
+			path = KeyChain;
+			sourceTree = "<group>";
+		};
 		80CAB1C229BED818002A98B8 /* Sign up */ = {
 			isa = PBXGroup;
 			children = (
@@ -1299,6 +1358,7 @@
 				80192C9629BAC6B400A3D17D /* Assets.xcassets in Resources */,
 				8041B29729C5BA9F0043D6E4 /* Dashboard.storyboard in Resources */,
 				8041B2B529C5CBC90043D6E4 /* Profile.storyboard in Resources */,
+				807710A329CB51A3004E019A /* TransactionCollectionViewCell.xib in Resources */,
 				80CAB1D929BF1A30002A98B8 /* SignUpViewController.storyboard in Resources */,
 				8041B2AF29C5CBAA0043D6E4 /* Home.storyboard in Resources */,
 			);
@@ -1418,9 +1478,12 @@
 				80818B3529BB48420003BC6F /* UIViewController+DismissWithResultProtocol.swift in Sources */,
 				80818BCA29BB7C3F0003BC6F /* OptionalString+IsNilOrEmpty.swift in Sources */,
 				80818C0229BB7E6B0003BC6F /* UIImage+Compress.swift in Sources */,
+				80BA5D9429DFF5A000AAEB71 /* GetTransactionList.swift in Sources */,
 				80818BA029BB79440003BC6F /* UIViewController+RxViewControllerCycle.swift in Sources */,
 				80818C2429BB87BA0003BC6F /* PresentationBinding.swift in Sources */,
 				803EB0C029C05B2200549E3D /* APIService.swift in Sources */,
+				80BA5D9629DFF5BA00AAEB71 /* GetTransactionListRequest.swift in Sources */,
+				80BA5DA029E01A7000AAEB71 /* ETKeyChainType.swift in Sources */,
 				80CAB1D329BF1872002A98B8 /* SignUpTypes.swift in Sources */,
 				8017C81B29BB21190020D279 /* DI+Login.swift in Sources */,
 				803EB0CE29C0C17A00549E3D /* Login.swift in Sources */,
@@ -1449,6 +1512,7 @@
 				803EB0E729C2285900549E3D /* SignUpRequest.swift in Sources */,
 				80818B4B29BB4D2B0003BC6F /* DateTimeFormats.swift in Sources */,
 				80818C2229BB87BA0003BC6F /* ViewEvent.swift in Sources */,
+				80BA5D9B29E004F900AAEB71 /* Transaction.swift in Sources */,
 				80818B3D29BB4A720003BC6F /* StopEventTracker.swift in Sources */,
 				8017C82529BB21D90020D279 /* DI+Service.swift in Sources */,
 				80818BE829BB7E3B0003BC6F /* UINavigationController+Extension.swift in Sources */,
@@ -1466,6 +1530,7 @@
 				80818BBC29BB7C300003BC6F /* Double+SBKFractionPoint.swift in Sources */,
 				80818BF329BB7E5F0003BC6F /* UITableView+Extension.swift in Sources */,
 				803EB0E529C2283600549E3D /* SignUp.swift in Sources */,
+				80BA5D9829DFF5C500AAEB71 /* GetTransactionListResponse.swift in Sources */,
 				80818ADB29BB3BD90003BC6F /* BaseViewType.swift in Sources */,
 				80818BA229BB79440003BC6F /* ViewControllerCycleImplType.swift in Sources */,
 				80818BE029BB7C590003BC6F /* NSErrorUserInfoKey.swift in Sources */,
@@ -1502,10 +1567,13 @@
 				80CAB1D129BF185F002A98B8 /* DI+SignUp.swift in Sources */,
 				8041B29529C5B80B0043D6E4 /* DashboardTabBarViewType.swift in Sources */,
 				80818AE229BB3D100003BC6F /* ViewType.swift in Sources */,
+				807710A229CB51A3004E019A /* TransactionCollectionViewCell.swift in Sources */,
 				80818BCB29BB7C3F0003BC6F /* String+StringToDictionary.swift in Sources */,
 				80818AFA29BB40300003BC6F /* UIViewController+Disposable.swift in Sources */,
 				8041B2AD29C5CB6C0043D6E4 /* HomeViewModel.swift in Sources */,
 				80818C2929BB888B0003BC6F /* ListEmptyView.swift in Sources */,
+				80BA5D9E29E01A6800AAEB71 /* ETKeyChain.swift in Sources */,
+				8041B2B729C623D00043D6E4 /* UIView+CAGradientLayer.swift in Sources */,
 				80818AEB29BB3DC00003BC6F /* ViewModelType.swift in Sources */,
 				80818BA129BB79440003BC6F /* UIViewController+SwizzleViewControllerCycleImpl.swift in Sources */,
 				80818BF229BB7E5F0003BC6F /* UITableView+LoadMoreActivityIndicator.swift in Sources */,

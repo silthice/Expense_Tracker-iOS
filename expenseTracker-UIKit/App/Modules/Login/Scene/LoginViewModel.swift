@@ -23,12 +23,14 @@ final class LoginViewModel: BaseViewModel {
     
     //MARK: - Dependencies
     let apiService = APIService()
+    @Injected private var ETKeychain: ETKeyChainType
     
     //MARK: - Constants
     //MARK: - Vars
     var showPassword: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     var usernameRelay = BehaviorRelay<String?>(value: nil)
     var passwordRelay: BehaviorRelay<String?> = BehaviorRelay(value: nil)
+    var routeToDashboardRelay: BehaviorRelay<Void> = BehaviorRelay(value: ())
     
     //MARK: - Init
     override init() {
@@ -58,6 +60,10 @@ final class LoginViewModel: BaseViewModel {
         let routeToSignup = self.signUpButtonDidTap
             .do(onNext: { self.view?.routeToSignup() })
                 
+        let routeToDashboard = self.routeToDashboardRelay.asDriver()
+            .skip(1)
+            .do(onNext: { self.view?.routeToDashboard() })
+                
         let toggleShowHide = self.showHidePasswordButtonDidTap
             .do(onNext: { self.view?.toggleShowHidePassword()})
         
@@ -65,6 +71,7 @@ final class LoginViewModel: BaseViewModel {
         disposeBag.insert(
             login.drive(),
             routeToSignup.drive(),
+            routeToDashboard.drive(),
             toggleShowHide.drive()
         )
     }
@@ -100,8 +107,14 @@ extension LoginViewModel {
         }
         
         if let user = res.user, let token = res.token {
-            UserSettingCenter.userId = user.username ?? ""
-            UserSettingCenter.token = token
+            
+            do {
+                try self.ETKeychain.setUserId(user._id)
+                try self.ETKeychain.setLoginName(user.username)
+                try self.ETKeychain.setBearerToken("Bearer " + token)
+            } catch {
+                print("giap check error setting persistencies")
+            }
             self.view?.showAlert(title: "Login Success", isError: false, message: "")
         }
     }
