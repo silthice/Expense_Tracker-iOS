@@ -20,7 +20,7 @@ class DashboardTabBarController: UITabBarController, DashboardTabBarViewType {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
         
-        self.tabBar.unselectedItemTintColor = .white
+        self.tabBar.unselectedItemTintColor = .lightGray
         self.tabBar.tintColor = ExpenseTracker.Colors.teal_2FEBEB
         
         switch dashboardAction {

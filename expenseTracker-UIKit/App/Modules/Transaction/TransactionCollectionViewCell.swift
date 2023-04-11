@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class TransactionCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var cellButton: UIButton!
     @IBOutlet weak var cellBackgroundView: UIView!
     @IBOutlet weak var transactionCategoryLabel: UILabel!
     @IBOutlet weak var transactionDateLabel: UILabel!
@@ -16,11 +19,17 @@ class TransactionCollectionViewCell: UICollectionViewCell {
     
     //* MARK: Dependency
     @Injected private var ETKeychain: ETKeyChainType
+    private(set) var disposeBag = DisposeBag()
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         commonInit()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
     }
     
     private func commonInit() {
@@ -44,17 +53,21 @@ class TransactionCollectionViewCell: UICollectionViewCell {
         self.transactionCategoryLabel.text = transaction.t_cat_name
         self.transactionDateLabel.text = transaction.updatedAt
         
-        self.transactionAmountLabel.textColor = transaction.t_is_income ? .green : .red
-        self.transactionAmountLabel.text = (transaction.t_is_income ? "+" : "-") + convertToPrefCurrency(transaction: transaction)
+        self.transactionAmountLabel.textColor = transaction.t_is_income ? ExpenseTracker.Colors.teal_2FEBEB : .red
+        self.transactionAmountLabel.text = (transaction.t_is_income ? "+" : "-") + (ETKeychain.getCurrencyCode() ?? "") +  convertToPrefCurrency(transaction: transaction)
     }
     
     func convertToPrefCurrency(transaction: Transaction) -> String {
         if let rateName = transaction.t_r_name {
-            if rateName != ETKeychain.getCurrencyCode() {
+            if rateName != ETKeychain.getCurrencyCodeString() {
                 return "\((transaction.t_amt * transaction.t_rate_during_transaction).toString().currencyFormat)"
             }
         }
         return "\(transaction.t_amt.toString().currencyFormat)"
     }
 
+}
+
+extension Reactive where Base: TransactionCollectionViewCell {
+    var cellDidTap: Driver<Void> { return Driver.merge(base.cellButton.rx.tap.asDriver())}
 }

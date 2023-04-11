@@ -13,6 +13,7 @@ import SwifterSwift
 final class HomeViewModel: BaseViewModel {
     
     //MARK: - Inputs
+    var overviewDidTap: Driver<Void> = .never()
     
     //MARK: - Outputs
     public weak var view: HomeViewType? = nil
@@ -43,8 +44,14 @@ final class HomeViewModel: BaseViewModel {
                 self.getRecentTransactions(t_user_id: self.ETKeychain.getUserId() ?? "")
             })
                 
+        let overviewDidTap = self.overviewDidTap
+            .do(onNext: {
+                self.view?.routeToOverview()
+            })
+                
         disposeBag.insert(
-            getRecentTransactions.drive()
+            getRecentTransactions.drive(),
+            overviewDidTap.drive()
         )
     }
 }

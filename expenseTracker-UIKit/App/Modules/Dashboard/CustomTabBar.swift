@@ -15,7 +15,7 @@ class CustomTabBar: UITabBar {
     private func addShape() {
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = createPathCircle()
-        shapeLayer.fillColor = ExpenseTracker.Colors.teal_0F202A.cgColor
+        shapeLayer.fillColor = ExpenseTracker.Colors.white_FFFFFF.cgColor
         shapeLayer.opacity = 0.9
 
         if let oldShapeLayer = self.shapeLayer {

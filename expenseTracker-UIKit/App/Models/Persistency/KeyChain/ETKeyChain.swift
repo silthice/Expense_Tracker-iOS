@@ -74,8 +74,7 @@ public class ETKeyChain : ETKeyChainType {
         if let ETCurrencyCode = ETKeyChain.retrieve("ETCurrencyCode") as! String?{
             return ETCurrencyCode.uppercased() == "MYR" ? "RM" : "$"
         }
-//        return ""
-        return "SGD"
+        return "$"
     }
     
     public func setCurrencyCode(_ value: String?) throws {
@@ -87,7 +86,7 @@ public class ETKeyChain : ETKeyChainType {
         if let ETCurrencyCode = ETKeyChain.retrieve("ETCurrencyCode") as! String?{
             return ETCurrencyCode.uppercased()
         }
-        return ""
+        return "SGD"
     }
     
     

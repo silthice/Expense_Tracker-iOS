@@ -11,6 +11,8 @@ import RxCocoa
 
 
 protocol HomeViewType: BaseViewType {
+    func routeToOverview()
+    func routeToTransactionDetail(transaction: Transaction)
 }
 
 typealias HomeViewControllerType = UIViewController & HomeViewType
