@@ -24,7 +24,9 @@ class HomeViewController: BaseViewController<HomeViewModel> {
     @IBOutlet weak var earnedLabel: UILabel!
     @IBOutlet weak var earnedTitleLabel: UILabel!
     @IBOutlet weak var imageViewContainer: UIView!
+    @IBOutlet weak var recentTransactionStackViewContainer: UIStackView!
     @IBOutlet weak var recentTransactionTitleLabel: UILabel!
+    @IBOutlet weak var viewAllButton: UIButton!
     @IBOutlet weak var recentTransactionCollectionView: UICollectionView!
     @IBOutlet weak var recentTransactionCollectionViewHeightConstraint: NSLayoutConstraint!
     
@@ -52,6 +54,7 @@ class HomeViewController: BaseViewController<HomeViewModel> {
         super.updateViewConstraints()
         
         self.recentTransactionCollectionViewHeightConstraint.constant = self.recentTransactionCollectionView.contentSize.height + 10
+        
     }
     
     override func setupView() {
@@ -71,6 +74,8 @@ class HomeViewController: BaseViewController<HomeViewModel> {
         viewModel.view = self
         viewModel.startLoad = self.rx.viewWillAppear
         viewModel.overviewDidTap = overviewButton.rx.tap.asDriver()
+        viewModel.overviewDidTap = overviewButton.rx.tap.asDriver()
+        viewModel.viewAllDidtap = viewAllButton.rx.tap.asDriver()
     }
     
     override func subscribe() {
@@ -102,6 +107,7 @@ extension HomeViewController {
         imageViewContainer.roundCorners(.allCorners, radius: 90)
         overviewStackViewContainer.roundCorners(.allCorners, radius: 10)
         overviewStackViewContainer.backgroundColor = ExpenseTracker.Colors.teal_2FEBEB
+        recentTransactionStackViewContainer.layer.cornerRadius = 10
         
         netBalanceLabel.textColor = .white
         availableBalanceLabel.textColor = .white
@@ -128,8 +134,19 @@ extension HomeViewController: HomeViewType {
     
     func routeToTransactionDetail(transaction: Transaction) {
         print("giap check route to transaction detail", transaction)
-        let screen = DI.container.resolve(TransactionDetailViewControllerType.self)!
-        self.navigationController?.pushViewController(screen, animated: true)
+//        let screen = DI.container.resolve(TransactionDetailViewControllerType.self)!
+//        self.navigationController?.pushViewController(screen, animated: true)
+        
+        
+        let screen = DI.resolver.resolve(TransactionDetailViewControllerType.self)!
+        screen.modalPresentationStyle = .popover
+        screen.modalTransitionStyle = .coverVertical
+        screen.transactionId = transaction._id
+        self.present(screen, animated: true)
+    }
+    
+    func routeToAllTransaction() {
+        print("giap check viewall tapped")
     }
 }
 

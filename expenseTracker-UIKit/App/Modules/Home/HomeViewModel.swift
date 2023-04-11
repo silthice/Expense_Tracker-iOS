@@ -14,6 +14,7 @@ final class HomeViewModel: BaseViewModel {
     
     //MARK: - Inputs
     var overviewDidTap: Driver<Void> = .never()
+    var viewAllDidtap: Driver<Void> = .never()
     
     //MARK: - Outputs
     public weak var view: HomeViewType? = nil
@@ -49,9 +50,15 @@ final class HomeViewModel: BaseViewModel {
                 self.view?.routeToOverview()
             })
                 
+        let viewAllDidtap = self.viewAllDidtap
+            .do(onNext: {
+                self.view?.routeToAllTransaction()
+            })
+                
         disposeBag.insert(
             getRecentTransactions.drive(),
-            overviewDidTap.drive()
+            overviewDidTap.drive(),
+            viewAllDidtap.drive()
         )
     }
 }
@@ -60,8 +67,7 @@ extension HomeViewModel {
     
     func handleResponse(res: GetTransactionListResponse) {
         if let errMsg = res.errMsg {
-//            self.view?.showAlert(title: "Sign Up Failed", isError: true, message: errMsg)
-            print("giap check res error", res)
+            print("giap check res error", errMsg)
             return
         }
         

@@ -8,8 +8,9 @@
 import UIKit
 
 extension BarItem {
-    static func back(closure: ((UIViewController)->())? = BackBarItem.defaultClosure) -> BarItem {
+    static func back(color: UIColor = .white, closure: ((UIViewController)->())? = BackBarItem.defaultClosure) -> BarItem {
         let ret = BackBarItem()
+        ret.defaultColor = color
         ret.closure = closure
         return ret
     }
@@ -17,6 +18,8 @@ extension BarItem {
 
 class BackBarItem: BarItem {
     static let defaultId = "back"
+    
+    var defaultColor: UIColor = .white
     
     class func defaultClosure(_ vc:UIViewController) {
         vc.popWithResult()
@@ -32,11 +35,10 @@ class BackBarItem: BarItem {
             image = UIImage(systemName: "chevron.left")!
         } else {
             image = UIImage(systemName: "chevron.left")!
-//            image = N8.Images.n8BaseArrowLeftIcon
         }
         let item = UIBarButtonItem(image:image , style: .plain, target: self, action: #selector(self.performAction(sender:)))
         item.imageInsets = .zero
-        item.tintColor = .white
+        item.tintColor = self.defaultColor
         
         return item
     }

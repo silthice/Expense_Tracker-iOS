@@ -11,6 +11,7 @@ import UIKit
 protocol HomeViewType: BaseViewType {
     func routeToOverview()
     func routeToTransactionDetail(transaction: Transaction)
+    func routeToAllTransaction()
 }
 
 typealias HomeViewControllerType = UIViewController & HomeViewType
