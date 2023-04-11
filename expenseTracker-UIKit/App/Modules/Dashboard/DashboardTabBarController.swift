@@ -36,12 +36,9 @@ class DashboardTabBarController: UITabBarController, DashboardTabBarViewType {
 
 extension DashboardTabBarController {
     func setupTabBarView(selectedIndex: Int){
-//        tabBar.backgroundColor = .clear
-//        tabBarController?.tabBar.backgroundColor = .red
         let item1 = self.createHomeScreen()
         let icon1 = UITabBarItem(
             title: "",
-//            image: selectedIndex == 0 ? UIImage() : UIImage(systemName: "homekit"),
             image: UIImage(systemName: "homekit"),
             tag: 0
         )
@@ -65,9 +62,69 @@ extension DashboardTabBarController {
         
         self.viewControllers = [item1, item2]
         
-//        viewOverTabBar = UIView(frame: CGRect(x: 0, y: 0, width: self.tabBar.frame.width, height: self.tabBar.frame.height))
-//        viewOverTabBar.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-//        viewOverTabBar.backgroundColor = .clear
+        viewOverTabBar = UIView(frame: CGRect(x: 0, y: 0, width: self.tabBar.frame.width, height: self.tabBar.frame.height))
+        viewOverTabBar.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        viewOverTabBar.backgroundColor = .none
+        
+        
+        //add horizontal stack view into the viewOverTabBar
+        let horizontalStackView = UIStackView()
+        horizontalStackView.widthAnchor.constraint(equalToConstant: self.tabBar.frame.width).isActive = true
+        horizontalStackView.heightAnchor.constraint(equalToConstant: self.tabBar.frame.height).isActive = true
+        horizontalStackView.axis = .horizontal
+        horizontalStackView.alignment = .fill
+        horizontalStackView.distribution = .fillEqually
+        horizontalStackView.backgroundColor = .none
+        horizontalStackView.spacing = 0
+        
+        
+        if self.viewControllers?.count ?? 0 > 0 {
+            for i in 0...self.viewControllers!.count - 1 {
+                horizontalStackView.addArrangedSubview(self.setupTabsGesture(index: i, selected: i == selectedIndex ? true : false))
+            }
+            viewOverTabBar.addSubview(horizontalStackView)
+            //autolayout constraints
+            horizontalStackView.translatesAutoresizingMaskIntoConstraints = false
+            horizontalStackView.spacing = UIScreen.main.bounds.size.width / 9
+            tabBar.addSubview(viewOverTabBar)
+            self.selectedIndex = selectedIndex
+            tabBarController?.tabBarItem.isEnabled = false
+            
+        }
+        
+//        self.tabBar.addSubview(viewOverTabBar)
+
+        addButton()
+       
+    }
+    
+    func setupTabsGesture(index: Int, selected: Bool) -> UIView {
+        
+        let touchableOpacity = UIView(frame: CGRect(x: 0, y: -10, width: 60, height: 60))
+        touchableOpacity.backgroundColor = .none
+        touchableOpacity.layer.cornerRadius = 15
+        touchableOpacity.clipsToBounds = true
+        touchableOpacity.tag = index
+        
+        // create tap gesture recognizer
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.iconImageTapped(gesture:)))
+
+        // make sure imageView can be interacted with by user
+        touchableOpacity.isUserInteractionEnabled = true
+        // add it to the image view;
+        touchableOpacity.addGestureRecognizer(tapGesture)
+        
+        return touchableOpacity
+        
+    }
+    
+    @objc func iconImageTapped(gesture: UIGestureRecognizer) {
+        print("giap check", gesture.view!.tag)
+        self.setupTabBarView(selectedIndex: gesture.view!.tag)
+        self.selectedIndex = gesture.view!.tag
+    }
+    
+    func addButton() {
         
 //         Add a centered round button
         let button = UIButton(type: .custom)
@@ -77,20 +134,15 @@ extension DashboardTabBarController {
         button.layer.cornerRadius = 27.5
         button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-
-
-
-        self.view.insertSubview(button, aboveSubview: self.tabBar)
-//        self.view.addSubview(button)
+        
+        self.viewOverTabBar.addSubview(button)
 
         NSLayoutConstraint.activate([
-            button.centerXAnchor.constraint(equalTo: self.tabBar.centerXAnchor),
-            button.centerYAnchor.constraint(equalTo: self.tabBar.topAnchor),
+            button.centerXAnchor.constraint(equalTo: self.viewOverTabBar.centerXAnchor),
+            button.centerYAnchor.constraint(equalTo: self.viewOverTabBar.topAnchor),
             button.widthAnchor.constraint(equalToConstant: 55.0),
             button.heightAnchor.constraint(equalToConstant: 55.0)
         ])
-        
-       
     }
     
     @objc func buttonAction(sender: UIButton!) {
