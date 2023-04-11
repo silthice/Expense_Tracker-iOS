@@ -20,6 +20,7 @@ extension DI.ViewPairs {
         Dashboard.register()
         Home.register()
         Profile.register()
+        TransactionDetail.register()
     }
 }
 

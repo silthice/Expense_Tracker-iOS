@@ -20,16 +20,14 @@ class LandingViewController: UIViewController {
 
 extension LandingViewController {
     private func redirect() {
-        if let _ = ETKeychain.getBearerToken() {
-            let screen = DI.resolver.resolve(DashboardTabBarControllerType.self)!
-            let vc = UINavigationController(rootViewController: screen)
-            UIApplication.shared.windows.first?.rootViewController = vc
-            UIApplication.shared.windows.first?.makeKeyAndVisible()
+        let screen: UIViewController
+        if let existToken = ETKeychain.getBearerToken(), !existToken.isNilOrEmpty {
+            screen = DI.resolver.resolve(DashboardTabBarControllerType.self)!
         } else {
-            let screen = DI.resolver.resolve(LoginViewControllerType.self)!
-            let vc = UINavigationController(rootViewController: screen)
-            UIApplication.shared.windows.first?.rootViewController = vc
-            UIApplication.shared.windows.first?.makeKeyAndVisible()
+            screen = DI.resolver.resolve(LoginViewControllerType.self)!
         }
+        let vc = UINavigationController(rootViewController: screen)
+        UIApplication.shared.windows.first?.rootViewController = vc
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
 }

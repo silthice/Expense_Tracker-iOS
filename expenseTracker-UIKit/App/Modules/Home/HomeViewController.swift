@@ -128,6 +128,8 @@ extension HomeViewController: HomeViewType {
     
     func routeToTransactionDetail(transaction: Transaction) {
         print("giap check route to transaction detail", transaction)
+        let screen = DI.container.resolve(TransactionDetailViewControllerType.self)!
+        self.navigationController?.pushViewController(screen, animated: true)
     }
 }
 

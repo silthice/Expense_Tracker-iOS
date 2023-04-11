@@ -168,6 +168,11 @@
 		80818C2429BB87BA0003BC6F /* PresentationBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818C2129BB87BA0003BC6F /* PresentationBinding.swift */; };
 		80818C2829BB888B0003BC6F /* ListEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80818C2629BB888B0003BC6F /* ListEmptyView.xib */; };
 		80818C2929BB888B0003BC6F /* ListEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80818C2729BB888B0003BC6F /* ListEmptyView.swift */; };
+		8094C4AC29E50297007D4AB0 /* TransactionDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8094C4AB29E50297007D4AB0 /* TransactionDetail.storyboard */; };
+		8094C4AE29E502AB007D4AB0 /* DI+TransactionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8094C4AD29E502AB007D4AB0 /* DI+TransactionDetail.swift */; };
+		8094C4B029E502C8007D4AB0 /* TransactionDetailTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8094C4AF29E502C8007D4AB0 /* TransactionDetailTypes.swift */; };
+		8094C4B229E502D2007D4AB0 /* TransactionDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8094C4B129E502D2007D4AB0 /* TransactionDetailController.swift */; };
+		8094C4B429E502D9007D4AB0 /* TransactionDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8094C4B329E502D9007D4AB0 /* TransactionDetailModel.swift */; };
 		80BA5D9429DFF5A000AAEB71 /* GetTransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BA5D9329DFF5A000AAEB71 /* GetTransactionList.swift */; };
 		80BA5D9629DFF5BA00AAEB71 /* GetTransactionListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BA5D9529DFF5BA00AAEB71 /* GetTransactionListRequest.swift */; };
 		80BA5D9829DFF5C500AAEB71 /* GetTransactionListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BA5D9729DFF5C500AAEB71 /* GetTransactionListResponse.swift */; };
@@ -350,6 +355,11 @@
 		80818C2129BB87BA0003BC6F /* PresentationBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationBinding.swift; sourceTree = "<group>"; };
 		80818C2629BB888B0003BC6F /* ListEmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListEmptyView.xib; sourceTree = "<group>"; };
 		80818C2729BB888B0003BC6F /* ListEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListEmptyView.swift; sourceTree = "<group>"; };
+		8094C4AB29E50297007D4AB0 /* TransactionDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TransactionDetail.storyboard; sourceTree = "<group>"; };
+		8094C4AD29E502AB007D4AB0 /* DI+TransactionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DI+TransactionDetail.swift"; sourceTree = "<group>"; };
+		8094C4AF29E502C8007D4AB0 /* TransactionDetailTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailTypes.swift; sourceTree = "<group>"; };
+		8094C4B129E502D2007D4AB0 /* TransactionDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailController.swift; sourceTree = "<group>"; };
+		8094C4B329E502D9007D4AB0 /* TransactionDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailModel.swift; sourceTree = "<group>"; };
 		80BA5D9329DFF5A000AAEB71 /* GetTransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionList.swift; sourceTree = "<group>"; };
 		80BA5D9529DFF5BA00AAEB71 /* GetTransactionListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionListRequest.swift; sourceTree = "<group>"; };
 		80BA5D9729DFF5C500AAEB71 /* GetTransactionListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionListResponse.swift; sourceTree = "<group>"; };
@@ -415,6 +425,7 @@
 		8017C81429BB20920020D279 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8094C4AA29E50284007D4AB0 /* TransactionDetail */,
 				8077109F29CB517B004E019A /* Transaction */,
 				8041B29D29C5CB070043D6E4 /* Profile */,
 				8041B29C29C5CB040043D6E4 /* Home */,
@@ -1228,6 +1239,18 @@
 			path = ListEmptyView;
 			sourceTree = "<group>";
 		};
+		8094C4AA29E50284007D4AB0 /* TransactionDetail */ = {
+			isa = PBXGroup;
+			children = (
+				8094C4AB29E50297007D4AB0 /* TransactionDetail.storyboard */,
+				8094C4AD29E502AB007D4AB0 /* DI+TransactionDetail.swift */,
+				8094C4B129E502D2007D4AB0 /* TransactionDetailController.swift */,
+				8094C4B329E502D9007D4AB0 /* TransactionDetailModel.swift */,
+				8094C4AF29E502C8007D4AB0 /* TransactionDetailTypes.swift */,
+			);
+			path = TransactionDetail;
+			sourceTree = "<group>";
+		};
 		80BA5D9029DFF55500AAEB71 /* GetTransactionList */ = {
 			isa = PBXGroup;
 			children = (
@@ -1351,6 +1374,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8094C4AC29E50297007D4AB0 /* TransactionDetail.storyboard in Resources */,
 				80192CAC29BB0FBE00A3D17D /* Landing.storyboard in Resources */,
 				80818C2829BB888B0003BC6F /* ListEmptyView.xib in Resources */,
 				800E5C1829BB9F260099AB01 /* LoginViewController.storyboard in Resources */,
@@ -1419,6 +1443,7 @@
 				80818BDB29BB7C540003BC6F /* NSObject+TypeName.swift in Sources */,
 				80818C1D29BB80DF0003BC6F /* LoadMoreItemsViewControllerTypeExtensions.swift in Sources */,
 				80818C0629BB7E6B0003BC6F /* UIViewController+Loader.swift in Sources */,
+				8094C4AE29E502AB007D4AB0 /* DI+TransactionDetail.swift in Sources */,
 				80818BCD29BB7C3F0003BC6F /* String+HtmlToString.swift in Sources */,
 				8041B29929C5BAB70043D6E4 /* DI+Dashboard.swift in Sources */,
 				803EB0D929C1780000549E3D /* LoginRequest.swift in Sources */,
@@ -1429,6 +1454,7 @@
 				80818AF029BB3E7F0003BC6F /* DisposeBagHolderType+Extension.swift in Sources */,
 				80818C1E29BB80DF0003BC6F /* ReloadItemsViewControllerType.swift in Sources */,
 				80818AE529BB3D4D0003BC6F /* BaseNavigationChildViewController.swift in Sources */,
+				8094C4B429E502D9007D4AB0 /* TransactionDetailModel.swift in Sources */,
 				80818B0729BB41A30003BC6F /* UIView+DisposeBagHolderType.swift in Sources */,
 				80818B4529BB4C640003BC6F /* DateProviderType.swift in Sources */,
 				80818AF529BB3F430003BC6F /* AssociatedObjectUtility.swift in Sources */,
@@ -1485,6 +1511,7 @@
 				80BA5D9629DFF5BA00AAEB71 /* GetTransactionListRequest.swift in Sources */,
 				80BA5DA029E01A7000AAEB71 /* ETKeyChainType.swift in Sources */,
 				80CAB1D329BF1872002A98B8 /* SignUpTypes.swift in Sources */,
+				8094C4B029E502C8007D4AB0 /* TransactionDetailTypes.swift in Sources */,
 				8017C81B29BB21190020D279 /* DI+Login.swift in Sources */,
 				803EB0CE29C0C17A00549E3D /* Login.swift in Sources */,
 				80818B0D29BB41EC0003BC6F /* UIViewController+SwizzleDOWRFP.swift in Sources */,
@@ -1569,6 +1596,7 @@
 				80818AE229BB3D100003BC6F /* ViewType.swift in Sources */,
 				807710A229CB51A3004E019A /* TransactionCollectionViewCell.swift in Sources */,
 				80818BCB29BB7C3F0003BC6F /* String+StringToDictionary.swift in Sources */,
+				8094C4B229E502D2007D4AB0 /* TransactionDetailController.swift in Sources */,
 				80818AFA29BB40300003BC6F /* UIViewController+Disposable.swift in Sources */,
 				8041B2AD29C5CB6C0043D6E4 /* HomeViewModel.swift in Sources */,
 				80818C2929BB888B0003BC6F /* ListEmptyView.swift in Sources */,
