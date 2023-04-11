@@ -1,16 +1,16 @@
 //
-//  GetTransactionList.swift
+//  GetTransactionDetail.swift
 //  expenseTracker-UIKit
 //
-//  Created by Giap on 07/04/2023.
+//  Created by Giap on 11/04/2023.
 //
 
 import UIKit
 import Alamofire
 
 extension APIService {
-    func getRecentTransactions(getRecentTransactionRequest: GetTransactionListRequest, completionHandler: @escaping (Result<GetTransactionListResponse, Error>) -> Void){
-        let urlString = "\(buildConfig.ETBaseURL)" + "/transactions/getTransactionList"
+    func getTransactionDetail(getTransactionDetailRequest: GetTransactionDetailRequest, completionHandler: @escaping (Result<GetTransactionDetailResponse, Error>) -> Void){
+        let urlString = "\(buildConfig.ETBaseURL)" + "/transactions/getTransactionDetail"
         
         guard let url = URL(string: urlString) else {
             DispatchQueue.main.async {
@@ -20,14 +20,15 @@ extension APIService {
         }
         
         let parameters = [
-            "t_user_id" : getRecentTransactionRequest.t_user_id,
+            "t_user_id" : getTransactionDetailRequest.t_user_id,
+            "t_id" : getTransactionDetailRequest.t_id,
         ]
         
         APIService.publicRequest(url: url, method: .post, parameters: parameters, headers: HTTPHeaders.jsonHeader()) { (response) in
             
             switch response {
             case .success(let data):
-                if let response: GetTransactionListResponse = try? JSONDecoder().decode(GetTransactionListResponse.self, from: data) {
+                if let response: GetTransactionDetailResponse = try? JSONDecoder().decode(GetTransactionDetailResponse.self, from: data) {
                     DispatchQueue.main.async {
                         completionHandler(.success(response))
                     }

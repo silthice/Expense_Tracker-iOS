@@ -12,12 +12,16 @@ import RxCocoa
 class TransactionDetailViewController: BaseViewController<TransactionDetailViewModel> {
     //MARK: - IBOutlets
     //MARK: - Constants
+    var transactionId: String?
     //MARK: - Vars
+    private var activityIndicatorView = UIActivityIndicatorView()
+    
     //MARK: - Dependencies
     //MARK: - Lifecycles
     override func loadView() {
         super.loadView()
         viewModel = DI.resolver.resolve(TransactionDetailViewModel.self)!
+        viewModel.transactionId.accept(self.transactionId)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,7 +60,7 @@ class TransactionDetailViewController: BaseViewController<TransactionDetailViewM
 //MARK: - Helper
 extension TransactionDetailViewController {
     func setupUI() {
-        
+        self.leftBarItem = .back(color: .black)
     }
     
     func setupText() {
@@ -66,5 +70,11 @@ extension TransactionDetailViewController {
 
 //MARK: - <TransactionDetailViewType>
 extension TransactionDetailViewController: TransactionDetailViewType {
+    func showLoader() {
+        self.activityIndicatorView = self.showLoader(view: self.view, isIgnoreInteraction: false)
+    }
     
+    func dismissLoader() {
+        self.activityIndicatorView.dismissLoader()
+    }
 }

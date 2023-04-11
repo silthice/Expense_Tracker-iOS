@@ -8,7 +8,9 @@
 import UIKit
 
 protocol TransactionDetailViewType: BaseViewType {
-    
+    var transactionId: String? { get set }
+    func showLoader()
+    func dismissLoader()
 }
 
 typealias TransactionDetailViewControllerType = UIViewController & TransactionDetailViewType
