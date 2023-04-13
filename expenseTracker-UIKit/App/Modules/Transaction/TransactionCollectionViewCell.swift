@@ -51,8 +51,7 @@ class TransactionCollectionViewCell: UICollectionViewCell {
     
     func setupView(transaction: Transaction) {
         self.transactionCategoryLabel.text = transaction.t_cat_name
-        self.transactionDateLabel.text = transaction.updatedAt
-        
+        self.transactionDateLabel.text = Date().convertDateWithGMT(dateString: transaction.updatedAt ?? "", gmt:"GMT+8", toDateFormat: "dd/MM/yyyy hh:mma ")
         self.transactionAmountLabel.textColor = transaction.t_is_income ? ExpenseTracker.Colors.teal_2FEBEB : .red
         self.transactionAmountLabel.text = (transaction.t_is_income ? "+" : "-") + (ETKeychain.getCurrencyCode() ?? "") +  convertToPrefCurrency(transaction: transaction)
     }
@@ -60,7 +59,7 @@ class TransactionCollectionViewCell: UICollectionViewCell {
     func convertToPrefCurrency(transaction: Transaction) -> String {
         if let rateName = transaction.t_r_name {
             if rateName != ETKeychain.getCurrencyCodeString() {
-                return "\((transaction.t_amt * transaction.t_rate_during_transaction).toString().currencyFormat)"
+                return "\((transaction.t_amt / transaction.t_rate_during_transaction).toString().currencyFormat)"
             }
         }
         return "\(transaction.t_amt.toString().currencyFormat)"

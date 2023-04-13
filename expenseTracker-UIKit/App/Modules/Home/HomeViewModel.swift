@@ -42,7 +42,7 @@ final class HomeViewModel: BaseViewModel {
         
         let getRecentTransactions = self.startLoad
             .do(onNext: {
-                self.getRecentTransactions(t_user_id: self.ETKeychain.getUserId() ?? "")
+                self.getRecentTransactions()
             })
                 
         let overviewDidTap = self.overviewDidTap
@@ -80,8 +80,9 @@ extension HomeViewModel {
 
 //MARK: - API
 extension HomeViewModel {
-    private func getRecentTransactions(t_user_id: String) {
+    func getRecentTransactions() {
 //        self.view?.showLoader()
+        let t_user_id = self.ETKeychain.getUserId() ?? ""
         let request = GetTransactionListRequest(t_user_id: t_user_id)
         
         apiService.getRecentTransactions(getRecentTransactionRequest: request) { response in

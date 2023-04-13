@@ -10,6 +10,10 @@ import RxSwift
 import RxCocoa
 import RxBiBinding
 
+protocol HomeDelegate {
+    func reload()
+}
+
 class HomeViewController: BaseViewController<HomeViewModel> {
     //MARK: - IBOutlets
     
@@ -33,6 +37,7 @@ class HomeViewController: BaseViewController<HomeViewModel> {
     //MARK: - Constants
     let transactionCollectionViewCellIdentifier: String = "TransactionCollectionViewCell"
     //MARK: - Vars
+    var delegate: HomeDelegate!
     
     //MARK: - Dependencies
     @Injected private var ETKeychain: ETKeyChainType
@@ -133,15 +138,13 @@ extension HomeViewController: HomeViewType {
     }
     
     func routeToTransactionDetail(transaction: Transaction) {
-        print("giap check route to transaction detail", transaction)
 //        let screen = DI.container.resolve(TransactionDetailViewControllerType.self)!
 //        self.navigationController?.pushViewController(screen, animated: true)
-        
-        
         let screen = DI.resolver.resolve(TransactionDetailViewControllerType.self)!
         screen.modalPresentationStyle = .popover
         screen.modalTransitionStyle = .coverVertical
         screen.transactionId = transaction._id
+        screen.delegate = self
         self.present(screen, animated: true)
     }
     
@@ -154,13 +157,20 @@ extension HomeViewController: HomeViewType {
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var cellHeight = CGFloat(50)
-        var cellWidth = collectionView.width
+        let cellHeight = CGFloat(50)
+        let cellWidth = collectionView.width
                 
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         self.viewWillLayoutSubviews()
+    }
+}
+
+//MARK: - HomeDelegate
+extension HomeViewController: HomeDelegate {
+    func reload() {
+        viewModel.getRecentTransactions()
     }
 }
