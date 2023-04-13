@@ -32,6 +32,7 @@ final class TransactionDetailViewModel: BaseViewModel {
     //MARK: - Vars
     var transactionId = BehaviorRelay<String?>(value: "")
     var transactionDetail: BehaviorRelay<Transaction?> = BehaviorRelay(value: nil)
+    var selectedCategoryId: BehaviorRelay<Int> = BehaviorRelay(value: 0)
     
     //MARK: - Init
     override init() {
@@ -94,8 +95,8 @@ extension TransactionDetailViewModel {
         
         if res.status {
             self.transactionDetail.accept(res.transactionDetail)
+//            self.selectedCategoryId.accept(res.transactionDetail?.t_cat_id ?? 0)
             self.view?.setupText()
-            print("giap check", self.transactionDetail.value)
         }
     }
     

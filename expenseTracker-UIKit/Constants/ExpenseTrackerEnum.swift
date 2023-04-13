@@ -99,24 +99,25 @@ extension ExpenseTracker.Enum {
         }
         
         var getCategoryImage: UIImage {
+            let conf = UIImage.SymbolConfiguration(pointSize: 10, weight: .medium, scale: .large)
             switch self {
-            case .foodAndDrinks: return UIImage(systemName: "fork.knife")!
-            case .shopping: return UIImage(systemName: "handbag.fill")!
-            case .transport: return UIImage(systemName: "bus")!
-            case .billAndFees: return UIImage(systemName: "banknote.fill")!
-            case .entertainment: return UIImage(systemName: "theatermasks.fill")!
-            case .car: return UIImage(systemName: "car.fill")!
-            case .travel: return UIImage(systemName: "airplane.departure")!
-            case .home: return UIImage(systemName: "house.fill")!
-            case .healthCare: return UIImage(systemName: "cross.case.fill")!
-            case .education: return UIImage(systemName: "graduationcap.fill")!
-            case .groceries: return UIImage(systemName: "carrot.fill")!
-            case .beauty: return UIImage(systemName: "camera.macro")!
-            case .sports: return UIImage(systemName: "basketball.fill")!
-            case .work: return UIImage(systemName: "briefcase.fill")!
-            case .family: return UIImage(systemName: "person.2.fill")!
-            case .gift: return UIImage(systemName: "gift.fill")!
-            case .others: return UIImage(systemName: "questionmark.folder.fill")!
+            case .foodAndDrinks: return UIImage(systemName: "fork.knife", withConfiguration: conf)!
+            case .shopping: return UIImage(systemName: "handbag.fill", withConfiguration: conf)!
+            case .transport: return UIImage(systemName: "bus", withConfiguration: conf)!
+            case .billAndFees: return UIImage(systemName: "banknote.fill", withConfiguration: conf)!
+            case .entertainment: return UIImage(systemName: "theatermasks.fill", withConfiguration: conf)!
+            case .car: return UIImage(systemName: "car.fill", withConfiguration: conf)!
+            case .travel: return UIImage(systemName: "airplane.departure", withConfiguration: conf)!
+            case .home: return UIImage(systemName: "house.fill", withConfiguration: conf)!
+            case .healthCare: return UIImage(systemName: "cross.case.fill", withConfiguration: conf)!
+            case .education: return UIImage(systemName: "graduationcap.fill", withConfiguration: conf)!
+            case .groceries: return UIImage(systemName: "carrot.fill", withConfiguration: conf)!
+            case .beauty: return UIImage(systemName: "camera.macro", withConfiguration: conf)!
+            case .sports: return UIImage(systemName: "basketball.fill", withConfiguration: conf)!
+            case .work: return UIImage(systemName: "briefcase.fill", withConfiguration: conf)!
+            case .family: return UIImage(systemName: "person.2.fill", withConfiguration: conf)!
+            case .gift: return UIImage(systemName: "gift.fill", withConfiguration: conf)!
+            case .others: return UIImage(systemName: "questionmark.folder.fill", withConfiguration: conf)!
             }
         }
     }
@@ -139,12 +140,13 @@ extension ExpenseTracker.Enum {
         }
         
         var getCategoryImage: UIImage {
+            let conf = UIImage.SymbolConfiguration(pointSize: 10, weight: .medium, scale: .large)
             switch self {
-            case .salary: return UIImage(systemName: "dollarsign")!
-            case .business: return UIImage(systemName: "suitcase.fill")!
-            case .extraIncome: return UIImage(systemName: "dollarsign.circle.fill")!
-            case .gift: return UIImage(systemName: "gift.fill")!
-            case .others: return UIImage(systemName: "questionmark.folder.fill")!
+            case .salary: return UIImage(systemName: "dollarsign", withConfiguration: conf)!
+            case .business: return UIImage(systemName: "suitcase.fill", withConfiguration: conf)!
+            case .extraIncome: return UIImage(systemName: "dollarsign.circle.fill", withConfiguration: conf)!
+            case .gift: return UIImage(systemName: "gift.fill", withConfiguration: conf)!
+            case .others: return UIImage(systemName: "questionmark.folder.fill", withConfiguration: conf)!
             }
         }
         

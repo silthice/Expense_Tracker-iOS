@@ -11,13 +11,11 @@ import RxCocoa
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     
-    //* MARK: Dependency
     @IBOutlet weak var imageBackgroundView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    private(set) var disposeBag = DisposeBag()
-    
+    private(set) var disposeBag = DisposeBag()    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,21 +33,27 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     }
     
     private func commonInit() {
-        imageBackgroundView.backgroundColor = .systemGray6
-        imageView.tintColor = .gray
         titleLabel.font = ExpenseTracker.Fonts.sfProDisplayRegular(size: 12)
     }
     
     func setupView(category: Category, isEarning: Bool, categoryId: Int) {
         titleLabel.text = category.getCategoryName
         imageView.image = category.getCategoryImage
-        if category.getCategoryRawValue == categoryId  {
-            imageBackgroundView.backgroundColor = isEarning ? ExpenseTracker.Colors.teal_003C40 : .red
+        
+        var color = UIColor()
+        
+        if isEarning {
+            color = ExpenseTracker.Colors.teal_2FEFEF
+        } else {
+            color = .red
+        }
+        
+        if category.getCategoryRawValue == categoryId {
+            imageBackgroundView.backgroundColor = color
             imageView.tintColor = .white
+        } else {
+            imageBackgroundView.backgroundColor = .systemGray6
+            imageView.tintColor = .gray
         }
     }
 }
-
-//extension Reactive where Base: CategoryCollectionViewCell {
-//    var cellDidTap: Driver<Void> { return Driver.merge(base.cellButton.rx.tap.asDriver())}
-//}

@@ -9,6 +9,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol TransactionDetailDelegate {
+    func updateCategorySelection(isEarning: Bool, category: Category)
+}
+
 class TransactionDetailViewController: BaseViewController<TransactionDetailViewModel> {
     
     //MARK: - IBOutlets
@@ -28,6 +32,8 @@ class TransactionDetailViewController: BaseViewController<TransactionDetailViewM
     
     //MARK: - Constants
     var transactionId: String?
+    var tempCategoryId: Int?
+    var tempIsEarning: Bool?
     var transactionDetail: Transaction?
     //MARK: - Vars
     private var activityIndicatorView = UIActivityIndicatorView()
@@ -71,7 +77,6 @@ class TransactionDetailViewController: BaseViewController<TransactionDetailViewM
 //MARK: - Helper
 extension TransactionDetailViewController {
     func setupUI() {
-//        self.leftBarItem = .back(color: .black)
         backButton.tintColor = ExpenseTracker.Colors.teal_2FEFEF
         deleteButton.tintColor = ExpenseTracker.Colors.teal_2FEFEF
         categoryContainer.layer.cornerRadius = 10
@@ -82,6 +87,8 @@ extension TransactionDetailViewController {
         saveButton.backgroundColor = ExpenseTracker.Colors.teal_2FEFEF
         saveButton.layer.cornerRadius = 10
         saveButton.setTitleColor(.white, for: .normal)
+        isEarningLabel.textColor = .red
+        amountTextField.textColor = .red
     }
 }
 
@@ -132,7 +139,6 @@ extension TransactionDetailViewController: TransactionDetailViewType {
     }
     
     func selectCategory() {
-        print("giap check selectCat transaction")
         let screen = DI.resolver.resolve(CategorySelectionViewControllerType.self)!
         screen.modalPresentationStyle = .pageSheet
         if #available(iOS 15.0, *) {
@@ -142,10 +148,11 @@ extension TransactionDetailViewController: TransactionDetailViewType {
             }
         }
         screen.modalTransitionStyle = .coverVertical
-        print("giap check pass now", viewModel.transactionDetail.value?.t_is_income)
-        print("giap check pass now", viewModel.transactionDetail.value?.t_cat_id)
         screen.isEarning = viewModel.transactionDetail.value?.t_is_income
-        screen.categoryId = viewModel.transactionDetail.value?.t_cat_id
+        screen.tempIsEarning = tempIsEarning
+        screen.categoryId = tempCategoryId ?? viewModel.transactionDetail.value?.t_cat_id
+        screen.originalTransaction = viewModel.transactionDetail.value
+        screen.delegate = self
         self.present(screen, animated: true)
     }
     
@@ -155,13 +162,6 @@ extension TransactionDetailViewController: TransactionDetailViewType {
     
     func save() {
         print("giap check save transaction")
-        print("giap check", viewModel.transactionDetail.value?.t_user_id)
-        print("giap check", viewModel.transactionDetail.value?._id)
-        print("giap check", viewModel.transactionDetail.value?.t_cat_id)
-        print("giap check", viewModel.transactionDetail.value?.t_amt)
-        print("giap check", Double(self.amountTextField.text ?? ""))
-        print("giap check", viewModel.transactionDetail.value?.t_r_id)
-        print("giap check", viewModel.transactionDetail.value?.t_is_income)
         
         var t_amt: Double = 0
         if let amt = self.amountTextField.text {
@@ -175,5 +175,26 @@ extension TransactionDetailViewController: TransactionDetailViewType {
             t_amt: t_amt,
             t_r_id: viewModel.transactionDetail.value?.t_r_id ?? "",
             t_is_income: viewModel.transactionDetail.value?.t_is_income ?? false)
+    }
+}
+
+//MARK: - TransactionDetailDelegate
+extension TransactionDetailViewController: TransactionDetailDelegate {
+    func updateCategorySelection(isEarning: Bool, category: Category) {
+        titleLabel.text = "Edit \(category.getCategoryName)"
+        categoryLabel.text = category.getCategoryName
+        isEarningLabel.textColor = isEarning ? ExpenseTracker.Colors.teal_2FEFEF : .red
+        amountTextField.textColor = isEarning ? ExpenseTracker.Colors.teal_2FEFEF : .red
+        
+        var finalString = String()
+        
+        if isEarning {
+            finalString = "+ $"
+        } else {
+            finalString = "- $"
+        }
+        isEarningLabel.text = finalString
+        tempCategoryId = category.getCategoryRawValue
+        tempIsEarning = isEarning
     }
 }

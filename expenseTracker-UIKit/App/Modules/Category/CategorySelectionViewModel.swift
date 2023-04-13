@@ -13,7 +13,7 @@ import SwifterSwift
 final class CategorySelectionViewModel: BaseViewModel {
     
     //MARK: - Inputs
-    
+    var categoryCellDidSelected: Driver<Category> = .never()
     
     //MARK: - Outputs
     public weak var view: CategorySelectionViewType? = nil
@@ -23,10 +23,12 @@ final class CategorySelectionViewModel: BaseViewModel {
     //MARK: - Constants
     
     //MARK: - Vars
-//    var categoryList: BehaviorRelay<[Category]> = BehaviorRelay(value: ExpenseTracker.Enum.EnumIncomeCategory.allCases )
     var categoryList: BehaviorRelay<[Category]> = BehaviorRelay(value: ExpenseTracker.Enum.EnumSpendingCategory.allCases )
     var isEarning: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     var categoryId: BehaviorRelay<Int> = BehaviorRelay(value: 0)
+    var tempCategoryId: BehaviorRelay<Int> = BehaviorRelay(value: 0)
+    var tempIsEarning: BehaviorRelay<Bool> = BehaviorRelay(value: false)
+    var originalTransaction: BehaviorRelay<Transaction?> = BehaviorRelay(value: nil)
     
     //MARK: - Init
     override init() {
@@ -36,8 +38,14 @@ final class CategorySelectionViewModel: BaseViewModel {
     //MARK: - Transform
     override func transform() {
         super.transform()
+        
+        let categoryCellDidSelected = categoryCellDidSelected
+            .do(onNext: { category in
+                self.view?.updateSelection(category, self.isEarning.value)
+            })
                 
         disposeBag.insert(
+            categoryCellDidSelected.drive()
         )
     }
 }

@@ -1,3 +1,4 @@
+
 //
 //  CategorySelectionViewController.swift
 //  expenseTracker-UIKit
@@ -12,6 +13,7 @@ import RxCocoa
 class CategorySelectionViewController: BaseViewController<CategorySelectionViewModel> {
     
     //MARK: - IBOutlets
+    @IBOutlet weak var categoryTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     //MARK: - Constants
     let categoryCollectionViewCellIdentifier: String = "CategoryCollectionViewCell"
@@ -19,6 +21,10 @@ class CategorySelectionViewController: BaseViewController<CategorySelectionViewM
     //MARK: - Vars
     var isEarning: Bool?
     var categoryId: Int?
+    var tempCategoryId: Int?
+    var tempIsEarning: Bool?
+    var originalTransaction: Transaction?
+    var delegate: TransactionDetailDelegate!
     
     //MARK: - Dependencies
     //MARK: - Lifecycles
@@ -27,6 +33,8 @@ class CategorySelectionViewController: BaseViewController<CategorySelectionViewM
         viewModel = DI.resolver.resolve(CategorySelectionViewModel.self)!
         viewModel.isEarning.accept(self.isEarning ?? false)
         viewModel.categoryId.accept(self.categoryId ?? 0)
+        viewModel.tempCategoryId.accept(self.categoryId ?? 0)
+        viewModel.originalTransaction.accept(self.originalTransaction ?? nil)
     }
     
     override func viewWillLayoutSubviews() {
@@ -49,6 +57,7 @@ class CategorySelectionViewController: BaseViewController<CategorySelectionViewM
         
         viewModel.view = self
         viewModel.startLoad = self.rx.viewWillAppear
+        viewModel.categoryCellDidSelected = categoryCollectionView.rx.modelSelected(Category.self).asDriver()
     }
     
     override func subscribe() {
@@ -58,13 +67,28 @@ class CategorySelectionViewController: BaseViewController<CategorySelectionViewM
         
         let categoryList = viewModel.categoryList.bind(to: categoryCollectionView.rx.items(cellIdentifier: categoryCollectionViewCellIdentifier)){ index, category, cell in
             if let categoryCell = cell as? CategoryCollectionViewCell {
-                categoryCell.setupView(category: category, isEarning: self.viewModel.isEarning.value, categoryId: self.viewModel.categoryId.value)
-//                transactionCell.rx.cellDidTap.map({
-//                    self.routeToTransactionDetail(transaction: transaction)
-//                }).drive().disposed(by: transactionCell.disposeBag)
-                
+                categoryCell.setupView(category: category, isEarning: self.categoryTypeSegmentedControl.selectedSegmentIndex == 0 ? false : true, categoryId: self.viewModel.categoryId.value)
             }
         }
+        
+        categoryTypeSegmentedControl.rx.selectedSegmentIndex
+            .skip(1)
+            .subscribe (
+            onNext: { index in
+            self.viewModel.categoryList.accept(index == 0 ? ExpenseTracker.Enum.EnumSpendingCategory.allCases : ExpenseTracker.Enum.EnumIncomeCategory.allCases)
+            self.viewModel.isEarning.accept(index == 0 ? false : true)
+            
+            if self.viewModel.isEarning.value == self.tempIsEarning {
+                
+                if let _ = self.tempIsEarning {
+                    self.viewModel.categoryId.accept(self.viewModel.tempCategoryId.value)
+                } else {
+                    self.viewModel.categoryId.accept(self.viewModel.categoryId.value)
+                }
+            } else {
+                self.viewModel.categoryId.accept(0)
+            }
+        })
         
         disposeBag.insert(
             categoryCollectionDelegate,
@@ -78,6 +102,9 @@ class CategorySelectionViewController: BaseViewController<CategorySelectionViewM
 extension CategorySelectionViewController {
     func setupUI() {
         
+        if let isEarning = self.tempIsEarning {
+            self.categoryTypeSegmentedControl.selectedSegmentIndex = isEarning ? 1 : 0
+        }
     }
     
     func setupText() {
@@ -87,29 +114,22 @@ extension CategorySelectionViewController {
 
 //MARK: - <CategorySelectionViewType>
 extension CategorySelectionViewController: CategorySelectionViewType {
-    
+    func updateSelection(_ category: Category, _ isEarning: Bool) {
+        self.viewModel.categoryId.accept(category.getCategoryRawValue)
+        self.viewModel.tempCategoryId.accept(category.getCategoryRawValue)
+        self.categoryCollectionView.reloadData()
+        self.delegate.updateCategorySelection(isEarning: isEarning, category: category)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+            self.dismiss(animated: true)
+        })
+    }
 }
 
 //MARK: - CollectionView Delegate
 extension CategorySelectionViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(horizontal: 5, vertical: 0)
-//    }
-
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return 20
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 20
-//    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let cellHeight = CGFloat(80)
-//        let cellWidth = CGFloat(80)
-//
-//        return CGSize(width: cellWidth, height: cellHeight)
         
         let noOfCellsInRow = 4
 

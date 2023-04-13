@@ -68,6 +68,7 @@
                     </view>
                     <connections>
                         <outlet property="categoryCollectionView" destination="QUO-Qi-wxL" id="8zx-a2-QR9"/>
+                        <outlet property="categoryTypeSegmentedControl" destination="CQL-F3-WoU" id="uZo-8y-Zhx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
