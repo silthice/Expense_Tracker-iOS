@@ -16,17 +16,11 @@ extension UIButton {
         ///Vibrate while typing
     }
     
-    func setPrimaryWhiteTheme(roundedCorner: Bool = false){
-        self.backgroundColor = .white
-        self.setTitleColor(.red, for: .normal)
-        self.borderColor = .red
-        self.borderWidth = 1
-        self.layer.cornerRadius = roundedCorner ? (self.height / 2) : 4
-    }
-    
-    func setPrimaryRedTheme(roundedCorner: Bool = false){
-        self.backgroundColor = .red
-        self.setTitleColor(.white, for: .normal)
+    func setButtonTheme(roundedCorner: Bool = false, backgroundColor: UIColor = .white, borderColor: UIColor = ExpenseTracker.Colors.teal_2FEFEF, borderWidth: CGFloat = 0) {
+        self.backgroundColor = backgroundColor
+        self.setTitleColor(borderColor, for: .normal)
+        self.borderColor = borderColor
+        self.borderWidth = borderWidth
         self.layer.cornerRadius = roundedCorner ? (self.height / 2) : 4
     }
     
