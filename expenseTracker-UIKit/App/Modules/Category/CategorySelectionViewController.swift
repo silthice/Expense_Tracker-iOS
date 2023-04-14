@@ -72,21 +72,19 @@ class CategorySelectionViewController: BaseViewController<CategorySelectionViewM
         }
         
         categoryTypeSegmentedControl.rx.selectedSegmentIndex
-            .skip(1)
             .subscribe (
             onNext: { index in
             self.viewModel.categoryList.accept(index == 0 ? ExpenseTracker.Enum.EnumSpendingCategory.allCases : ExpenseTracker.Enum.EnumIncomeCategory.allCases)
             self.viewModel.isEarning.accept(index == 0 ? false : true)
             
-            if self.viewModel.isEarning.value == self.tempIsEarning {
-                
-                if let _ = self.tempIsEarning {
-                    self.viewModel.categoryId.accept(self.viewModel.tempCategoryId.value)
-                } else {
-                    self.viewModel.categoryId.accept(self.viewModel.categoryId.value)
-                }
+            if let tempIsEarning = self.tempIsEarning {
+                let categoryId = self.viewModel.isEarning.value == tempIsEarning ?
+                    self.viewModel.tempCategoryId.value : 0
+                self.viewModel.categoryId.accept(categoryId)
             } else {
-                self.viewModel.categoryId.accept(0)
+                let categoryId = self.viewModel.isEarning.value == self.isEarning ?
+                    self.viewModel.tempCategoryId.value : 0
+                self.viewModel.categoryId.accept(categoryId)
             }
         })
         
@@ -102,8 +100,10 @@ class CategorySelectionViewController: BaseViewController<CategorySelectionViewM
 extension CategorySelectionViewController {
     func setupUI() {
         
-        if let isEarning = self.tempIsEarning {
-            self.categoryTypeSegmentedControl.selectedSegmentIndex = isEarning ? 1 : 0
+        if let tempIsEarning = self.tempIsEarning {
+            self.categoryTypeSegmentedControl.selectedSegmentIndex = tempIsEarning ? 1 : 0
+        } else {
+            self.categoryTypeSegmentedControl.selectedSegmentIndex = (self.isEarning ?? false) == true ? 1 : 0
         }
     }
     
@@ -115,12 +115,9 @@ extension CategorySelectionViewController {
 //MARK: - <CategorySelectionViewType>
 extension CategorySelectionViewController: CategorySelectionViewType {
     func updateSelection(_ category: Category, _ isEarning: Bool) {
-        self.viewModel.categoryId.accept(category.getCategoryRawValue)
-        self.viewModel.tempCategoryId.accept(category.getCategoryRawValue)
         self.categoryCollectionView.reloadData()
         self.delegate.updateCategorySelection(isEarning: isEarning, category: category)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
             self.dismiss(animated: true)
         })
     }

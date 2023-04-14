@@ -117,16 +117,10 @@ extension TransactionDetailViewController: TransactionDetailViewType {
         
         if let currency = viewModel.transactionDetail.value?.t_r_name,
             let isEarning = viewModel.transactionDetail.value?.t_is_income {
-            
-            var finalString = String()
-            
-            if isEarning {
-                finalString = "+ $"
-            } else {
-                finalString = "- $"
-            }
+            isEarningLabel.text = isEarning ? "+ $" : "- $"
+            isEarningLabel.textColor = isEarning ? ExpenseTracker.Colors.teal_2FEFEF : .red
+            amountTextField.textColor = isEarning ? ExpenseTracker.Colors.teal_2FEFEF : .red
             currencyLabel.text = currency
-            isEarningLabel.text = finalString
         }
     }
     
@@ -171,10 +165,11 @@ extension TransactionDetailViewController: TransactionDetailViewType {
         viewModel.saveTransactionDetail(
             t_user_id: viewModel.transactionDetail.value?.t_user_id ?? "",
             t_id: viewModel.transactionDetail.value?._id ?? "",
-            t_cat_id: viewModel.transactionDetail.value?.t_cat_id ?? 0,
+            t_cat_id: tempCategoryId ?? viewModel.transactionDetail.value?.t_cat_id ?? 0,
             t_amt: t_amt,
             t_r_id: viewModel.transactionDetail.value?.t_r_id ?? "",
-            t_is_income: viewModel.transactionDetail.value?.t_is_income ?? false)
+            t_is_income: tempIsEarning ?? viewModel.transactionDetail.value?.t_is_income ?? viewModel.transactionDetail.value?.t_is_income ?? false
+        )
     }
 }
 
@@ -185,15 +180,7 @@ extension TransactionDetailViewController: TransactionDetailDelegate {
         categoryLabel.text = category.getCategoryName
         isEarningLabel.textColor = isEarning ? ExpenseTracker.Colors.teal_2FEFEF : .red
         amountTextField.textColor = isEarning ? ExpenseTracker.Colors.teal_2FEFEF : .red
-        
-        var finalString = String()
-        
-        if isEarning {
-            finalString = "+ $"
-        } else {
-            finalString = "- $"
-        }
-        isEarningLabel.text = finalString
+        isEarningLabel.text = isEarning ? "+ $" : "- $"
         tempCategoryId = category.getCategoryRawValue
         tempIsEarning = isEarning
     }

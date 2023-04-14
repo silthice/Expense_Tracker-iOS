@@ -27,7 +27,6 @@ final class CategorySelectionViewModel: BaseViewModel {
     var isEarning: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     var categoryId: BehaviorRelay<Int> = BehaviorRelay(value: 0)
     var tempCategoryId: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var tempIsEarning: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     var originalTransaction: BehaviorRelay<Transaction?> = BehaviorRelay(value: nil)
     
     //MARK: - Init
@@ -41,6 +40,8 @@ final class CategorySelectionViewModel: BaseViewModel {
         
         let categoryCellDidSelected = categoryCellDidSelected
             .do(onNext: { category in
+                self.categoryId.accept(category.getCategoryRawValue)
+                self.tempCategoryId.accept(category.getCategoryRawValue)
                 self.view?.updateSelection(category, self.isEarning.value)
             })
                 
