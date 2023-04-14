@@ -22,6 +22,7 @@ extension DI.ViewPairs {
         Profile.register()
         TransactionDetail.register()
         CategorySelection.register()
+        ETAlertView.register()
     }
 }
 

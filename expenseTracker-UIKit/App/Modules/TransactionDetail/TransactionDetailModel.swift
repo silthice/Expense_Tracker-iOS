@@ -22,7 +22,7 @@ final class TransactionDetailViewModel: BaseViewModel {
     
     //MARK: - Outputs
     public weak var view: TransactionDetailViewType? = nil
-    
+    var deleteRelay = BehaviorRelay<Void?>(value: nil)
     //MARK: - Dependencies
     let apiService = APIService()
     @Injected private var ETKeychain: ETKeyChainType
@@ -56,7 +56,13 @@ final class TransactionDetailViewModel: BaseViewModel {
                 
        let deleteDidTap = deleteDidTap
             .do(onNext: {
-                self.view?.deleteTransaction()
+                self.view?.deleteConfirmation()
+            })
+                
+       let deleteRelay = deleteRelay.asDriver()
+            .skip(1)
+            .do(onNext: { _ in
+                self.deleteTransaction(t_user_id: self.ETKeychain.getUserId() ?? "", t_id: self.transactionId.value ?? "")
             })
                 
        let categoryDidTap = categoryDidTap
@@ -78,6 +84,7 @@ final class TransactionDetailViewModel: BaseViewModel {
             getTransactionDetail.drive(),
             backDidTap.drive(),
             deleteDidTap.drive(),
+            deleteRelay.drive(),
             categoryDidTap.drive(),
             dateTimeDidTap.drive(),
             saveDidTap.drive()
@@ -95,7 +102,6 @@ extension TransactionDetailViewModel {
         
         if res.status {
             self.transactionDetail.accept(res.transactionDetail)
-//            self.selectedCategoryId.accept(res.transactionDetail?.t_cat_id ?? 0)
             self.view?.setupText()
         }
     }
@@ -110,12 +116,22 @@ extension TransactionDetailViewModel {
             print("giap check save res")
         }
     }
+    
+    func handleDeleteResponse(res: DeleteTransactionResponse) {
+        if let errMsg = res.errMsg {
+            print("giap check save res error", errMsg)
+            return
+        }
+        
+        if res.status {
+            print("giap check save res")
+        }
+    }
 }
 
 //MARK: - API
 extension TransactionDetailViewModel {
     private func getTransactionDetail(t_user_id: String, t_id: String) {
-//        self.view?.showLoader()
         let request = GetTransactionDetailRequest(t_user_id: t_user_id, t_id: t_id)
         
         apiService.getTransactionDetail(getTransactionDetailRequest: request) { response in
@@ -139,6 +155,24 @@ extension TransactionDetailViewModel {
             switch response {
             case .success(let value):
                 self.handleSaveResponse(res: value)
+            case .failure(let error):
+                print("giap check fail", error)
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: {
+                self.view?.dismissLoader()
+                self.view?.dismiss()
+                self.view?.delegate.reload()
+            })
+        }
+    }
+    
+    func deleteTransaction(t_user_id: String, t_id: String) {
+        self.view?.showLoader()
+        let request = DeleteTransactionRequest(t_user_id: t_user_id, t_id: t_id)
+        apiService.deleteTransaction(deleteTransactionRequest: request) { response in
+            switch response {
+            case .success(let value):
+                self.handleDeleteResponse(res: value)
             case .failure(let error):
                 print("giap check fail", error)
             }

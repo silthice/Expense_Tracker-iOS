@@ -87,6 +87,7 @@ extension TransactionDetailViewController {
         saveButton.backgroundColor = ExpenseTracker.Colors.teal_2FEFEF
         saveButton.layer.cornerRadius = 10
         saveButton.setTitleColor(.white, for: .normal)
+        saveButton.titleLabel?.font = ExpenseTracker.Fonts.sfProDisplayBold(size: 15)
         isEarningLabel.textColor = .red
         amountTextField.textColor = .red
     }
@@ -128,8 +129,20 @@ extension TransactionDetailViewController: TransactionDetailViewType {
         self.dismiss(animated: true)
     }
     
-    func deleteTransaction() {
-        print("giap check delete transaction")
+    func deleteConfirmation() {
+        let alert = AlertService().alert(title: "", message: "Confirm Delete", button1Title: "Delete", button2Title: "Cancel", completion: { buttonType in
+            switch buttonType {
+            case .primary:
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                    self.viewModel.deleteRelay.accept(())
+                })
+                break
+            case .secondary:
+                break
+            }
+        })
+        
+        self.present(alert, animated: true)
     }
     
     func selectCategory() {

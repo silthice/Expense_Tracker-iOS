@@ -13,7 +13,7 @@ protocol TransactionDetailViewType: BaseViewType {
     func dismissLoader()
     func setupText()
     func dismiss()
-    func deleteTransaction()
+    func deleteConfirmation()
     func selectCategory()
     func selectDateTime()
     func save()

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 class SaveTransactionDetailResponse: BaseResponse {
     var transactionDetail: Transaction?
     
